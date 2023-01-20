@@ -3,42 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/01/15 00:36:08 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/01/20 19:15:55 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 /* Checks the validity of the arguments*/
-int arg_checker(int argc, char **argv)
+/*TODO checkar que todos son int*/
+int	arg_checker(char **argv)
 {
 	int	i;
 
 	i = 0;
-	while(++i <= argc)
+	return (1);
+}
+
+void	*read_list(int argc, char **argv, int **stack_a)
+{
+	while (argc-- > 0)
 	{
-		if (!ft_atoi(argv[i]))
-	}
-
+		if (arg_checker(argv[argc]))
+			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[argc])));
+	}	
 }
 
-int	*read_list(int argc, char **argv, int *stac_a)
+int	main(int argc, char **argv)
 {
-	/* TODO */
-	arg_checker(argc, argv)
-}
+	t_list	**stack_a;
+	t_list	**stack_b;
 
-int main(int argc, char **argv)
-{
-	int	*stack_a;
-	int	*stack_b;
-
-	stack_a = malloc(sizeof(int)*(argc - 1));
-	if (stack_a == NULL)
-		return (-1);
 	if (read_list(argc, argv, stack_a))
 		return (-1);
-	push_swap(stack_a, stack_b);
-
+	push_b(stack_a, stack_b);
+	/* push_swap(stack_a, stack_b);*/
+	printf("%d %d \n", (*stack_a)->content, (*stack_b)->content);
 }
