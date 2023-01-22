@@ -6,13 +6,14 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/01/22 12:39:55 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/01/22 21:37:21 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # VARIABLES
 
-NAME = push_swap.a
+NAME_ROOT = push_swap
+NAME = $(addprefix lib, $(addsuffix .a, push_swap))
 BIN_PATH = bin
 
 CC = gcc
@@ -69,16 +70,14 @@ $(OBJ_PATH):
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c | $(OBJ_PATH)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
-$(NAME): $(OBJ) $(LIB_A)
-	$(AR) $(ARFLAGS) $@ $^
-	@echo $(NAME)
-
-# -p no error if existing, make parent dirs as needed
-
 $(BIN_PATH):
 	mkdir -p $@
 
+$(NAME): $(LIB_A) $(OBJ)
+	cp $< $@
+	$(AR) $(ARFLAGS) $@ $^
+
 main: $(NAME)
-	$(CC) $(CFLAGS) main.c $(NAME) $(INCLUDE) -o test
+	$(CC) $(CFLAGS) main.c -L. -l$(NAME_ROOT) -o test
 
 .PHONY: clean fclean leaks re main $(NAME)
