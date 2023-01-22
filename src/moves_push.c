@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   moves_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 20:17:55 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/01/20 19:05:24 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/01/22 12:12:00 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	push_a(t_list **stack_b, t_list **stack_a)
 {
