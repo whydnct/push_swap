@@ -3,30 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/01/20 19:15:55 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/01/21 20:33:02 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 /* Checks the validity of the arguments*/
 /*TODO checkar que todos son int*/
-int	arg_checker(char **argv)
+int	arg_checker(char *argv)
 {
 	int	i;
 
 	i = 0;
+	(void)i;
+	(void)argv;
 	return (1);
 }
 
-void	*read_list(int argc, char **argv, int **stack_a)
+void	*read_list(int argc, char **argv, t_list **stack_a)
 {
+	int	*content;
+
 	while (argc-- > 0)
 	{
+		*content = ft_atoi(argv[argc]);
 		if (arg_checker(argv[argc]))
-			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(argv[argc])));
+			ft_lstadd_back(stack_a, ft_lstnew(content));
 	}	
 }
 
@@ -39,5 +45,5 @@ int	main(int argc, char **argv)
 		return (-1);
 	push_b(stack_a, stack_b);
 	/* push_swap(stack_a, stack_b);*/
-	printf("%d %d \n", (*stack_a)->content, (*stack_b)->content);
+	printf("%d %d \n", (int)(*(*stack_a)->content), (int)(*(*stack_b)->content));
 }
