@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_rotate.c                                     :+:      :+:    :+:   */
+/*   moves_rotate_array.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:53:07 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/01/15 17:25:00 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/01/22 22:36:20 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	rotate_a(int **stack, int *size, int in_both_call)
 {

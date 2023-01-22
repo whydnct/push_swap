@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_swap.c                                       :+:      :+:    :+:   */
+/*   moves_swap_array.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:52:16 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/01/15 17:06:08 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/01/22 22:36:23 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 /* swaps the first two elements of the stack*/
 /* doesn't do anything if #elements < 2*/

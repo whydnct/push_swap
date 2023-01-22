@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_reverse_rotate.c                             :+:      :+:    :+:   */
+/*   moves_reverse_rotate_array.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:01:48 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/01/15 17:25:10 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/01/22 22:36:15 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	r_rotate_a(int **stack, int *size, int in_both_call)
 {

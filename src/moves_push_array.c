@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_push.c                                       :+:      :+:    :+:   */
+/*   moves_push_array.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:51:28 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/01/15 17:27:05 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/01/22 22:36:00 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	add_on_top(int **stack_to, int **stack_from, int *size_to)
 {

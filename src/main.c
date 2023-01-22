@@ -6,12 +6,12 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/01/22 12:35:11 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/01/22 23:05:41 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "src/push_swap.h"
 #include <stdio.h>
+#include "push_swap.h"
 /* Checks the validity of the arguments*/
 /*TODO checkar que todos son int*/
 int	arg_checker(char *argv)
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 	t_list	**stack_a;
 /*	t_list	**stack_b;
 */
-	stack_a = NULL;
+	stack_a = malloc(sizeof(stack_a));
 	read_list(argc, argv, stack_a);
 /*	push_b(stack_a, stack_b);
 	push_swap(stack_a, stack_b);
