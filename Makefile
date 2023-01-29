@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/01/22 22:59:49 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/01/29 19:07:25 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = push_swap
 BIN_PATH = bin
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra  -g3 -fsanitize=address
 
 AR = ar
 ARFLAGS = rcs
