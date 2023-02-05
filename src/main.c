@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/05 14:00:16 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/05 21:09:44 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* Checks the validity of the arguments*/
 /*TODO checkar que todos son int*/
 /*
-int	arg_checker(char *argv)
+int	check_argv(char **argv)
 {
 	int	i;
 
@@ -36,9 +36,11 @@ void	read_list(int argc, char **argv, t_list **stack_a)
 	{
 		content = ft_atoi(argv[i]);
 		new = ft_lstnew(&content);
-		//if (arg_checker(argv[i]))
-			ft_lstadd_front(stack_a, new);
+		printf("%p\n", new->next);
+		ft_lstadd_front(stack_a, new);
 		i++;
+		printf("%d\n", *(int *)((**stack_a).content));
+		//printf("%p\n", ft_lstlast(*stack_a)->next);
 	}
 }
 
@@ -49,10 +51,8 @@ void	ft_del(void *content)
 
 void	ft_print_list(void *stack_a_el)
 {
-	t_list	*dummy;
-
-	dummy = stack_a_el;
-	printf("%d \n", *(dummy->content));
+	printf("%d \n", *(int *)stack_a_el);
+	printf("%p \n", (stack_a_el+4));
 }
 
 int	main(int argc, char **argv)
@@ -60,6 +60,7 @@ int	main(int argc, char **argv)
 	t_list	**stack_a;
 	//t_list	**stack_b;
 
+	//check_argv(argv);
 	stack_a = malloc(sizeof(t_list **));
 	read_list(argc, argv, stack_a);
 //	push_b(stack_a, stack_b);

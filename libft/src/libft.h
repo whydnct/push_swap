@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:47:04 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/05 12:48:20 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/05 21:05:09 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,14 @@
 
 typedef struct s_list
 {
-	int				*content;
+	void			*content;
 	struct s_list	*next;
 }	t_list;
+typedef struct s_list_int
+{
+	int				*content;
+	struct s_list	*next;
+}	t_list_int;
 void		ft_bzero(void *s, size_t n);
 int			ft_isascii(int c);
 int			ft_isalnum(int c);
@@ -63,6 +68,6 @@ void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-t_list		*ft_lstnew(int *content);
+t_list		*ft_lstnew(void *content);
 int			ft_lstsize(t_list *lst);
 #endif
