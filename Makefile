@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/01/29 19:07:25 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/02/05 12:38:59 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,8 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
 	@$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NEW_LIB_A): $(OBJ)
+	@make -C ./libft
+	@cp libft/libft.a $(LIB_A)
 	@cp $(LIB_A) $@
 	@$(AR) $(ARFLAGS) $@ $<
 

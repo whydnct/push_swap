@@ -6,13 +6,13 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 16:31:13 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/01/31 19:09:24 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/05 12:47:44 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int *content)
 {
 	t_list	*item;
 
