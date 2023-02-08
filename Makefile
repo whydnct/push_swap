@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/02/05 12:38:59 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/02/08 19:47:25 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,10 @@ NEW_LIB_A = $(LIB_PATH)/libpush_swap.a
 
 # $@ = target
 # $^ = prerequisite
+# TODO: está bien meter la .PHONY $(NEW_LIB_A) para que
+# recompile siempre la librería? como no tiene .o para comparar
+# con src creo que va a recompilarla siempre, y no sé si eso es correcto
+# esto viene de intentar incorporar cambios en libft.
 
 
 all: $(NAME)
@@ -83,4 +87,4 @@ $(NAME): $(NEW_LIB_A) $(OBJ) | $(BIN_PATH)
 	@$(CC) $(CFLAGS) $(SRC_PATH)/main.c -L$(LIB_PATH) -l$(NAME) -o $(BIN_PATH)/$(NAME)
 
 
-.PHONY: clean fclean re
+.PHONY: clean fclean re $(NEW_LIB_A)
