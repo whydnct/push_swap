@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:00:20 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/08 20:40:56 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/09 22:49:04 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 			ptr = (*lst)->next;
 			ft_lstdelone(*lst, del);
 			ft_putstr_fd("jumping to next item in list \n", 1);
-			if(ptr == NULL)
-				return;
+			if (ptr == NULL)
+			{
+				ft_putstr_fd("ptr->content == NULL", 1);
+				return ;
+			}
 			*lst = ptr;
 			ft_putstr_fd("*lst reassigned to ptr\n", 1);
 		}
