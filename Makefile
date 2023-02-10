@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
+#    By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/02/08 19:47:25 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/02/10 15:56:14 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = push_swap
 BIN_PATH = bin
 
 CC = gcc
-CFLAGS = -Wall -Wextra  -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g1 #-fsanitize=address
 
 AR = ar
 ARFLAGS = rcs
@@ -74,7 +74,10 @@ $(OBJ_PATH):
 $(BIN_PATH):
 	@mkdir -p $@
 
-$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
+$(LIB_PATH):
+	@mkdir -p $@
+
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH) $(LIB_PATH)
 	@$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NEW_LIB_A): $(OBJ)

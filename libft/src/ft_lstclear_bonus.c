@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:00:20 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/09 22:49:04 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/10 16:22:44 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,13 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*ptr;
 
-	ft_putstr_fd("entering ft_lstclear\n", 1);
 	if (lst)
 	{
 		while (*lst)
 		{
 			ptr = (*lst)->next;
 			ft_lstdelone(*lst, del);
-			ft_putstr_fd("jumping to next item in list \n", 1);
-			if (ptr == NULL)
-			{
-				ft_putstr_fd("ptr->content == NULL", 1);
-				return ;
-			}
 			*lst = ptr;
-			ft_putstr_fd("*lst reassigned to ptr\n", 1);
 		}
-		ft_putstr_fd("exiting while\n", 1);
 	}
 }

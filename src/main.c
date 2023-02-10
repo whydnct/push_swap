@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/08 20:13:16 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/10 16:38:28 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,15 @@ void	read_list(int argc, int *contents, t_list **stack_a)
 	i = 0;
 	while (i < argc - 1)
 	{
-		ft_lstadd_front(stack_a, ft_lstnew((void *)(contents + i)));
+		//ft_lstadd_front(stack_a, ft_lstnew((void *)(contents + i)));
+		ft_lstadd_back(stack_a, ft_lstnew((void *)(contents + i)));
+		printf("content:%d\n", *(int *)(*stack_a)->content);
 		i++;
-		printf("*content:\t%d\n", *(int *)((**stack_a).content));
-		printf("content: \t%p\n", (**stack_a).content);
-		printf("next:    \t%p\n", (**stack_a).next);
-		printf("&element: \t%p\n", &(**stack_a));
-		printf("&content:\t%p\n", &(**stack_a).content);
-		printf("&next:   \t%p\n\n", &(**stack_a).next);
 	}
 }
 
 void	ft_del(void *content)
 {
-	printf("entering ft_del with address %p\n", content);
-
 //	free(content);
 //	*(int*)content = 0;
 	content = NULL;
@@ -55,28 +49,28 @@ void	ft_del(void *content)
 void	ft_print_list(void *stack_a_el)
 {
 	printf("%d \n", *(int *)stack_a_el);
-	printf("%p \n", (stack_a_el+4));
+	printf("%p \n", (stack_a_el + 4));
 }
 
 int	main(int argc, char **argv)
 {
-	t_list	**stack_a;
-	//t_list	**stack_b;
-	int		*contents;
-	int		i;
+	t_list		*stack_a;
+	//t_list	*stack_b;
+	int			*contents;
+	int			i;
 
 	//check_argv(argv);
-	contents = malloc(sizeof(int)*(argc-1));
+	contents = malloc(sizeof(int) * (argc - 1));
 	i = 0;
-	while(++i < argc)
+	while (++i < argc)
 		contents[i - 1] = ft_atoi(argv[i]);
-	stack_a = malloc(sizeof(t_list **));
-	read_list(argc, contents, stack_a);
+	stack_a = malloc(sizeof(t_list *));
+	read_list(argc, contents, &stack_a);
 //	push_b(stack_a, stack_b);
 //	push_swap(stack_a, stack_b);
-//	printf("%d\n",*(int *)(**stack_a).content);
+	printf("%d\n",*(int *)(stack_a->content));
 //	ft_lstiter(*stack_a, &ft_print_list);
 	printf("clearing memory\n");
-	ft_lstclear(stack_a, &ft_del);
+	ft_lstclear(&stack_a, &ft_del);
 	free(contents);
 }
