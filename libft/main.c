@@ -1,12 +1,12 @@
 #include "src/libft.h"
+#include <stdio.h>
 
 int	main(void)
 {
-	char	*a;
-	t_list	*b;
+	t_list	*first;
+	int		cont;
 
-	a = "casa";
-	b = ft_lstnew(a);
-	ft_putstr_fd(a, 1);
-	ft_putstr_fd(b->content, 1);
+	cont = 5;
+	first = ft_lstnew((void *)&cont);
+	printf("first content: %d\n", *(int *)(first->content));
 }

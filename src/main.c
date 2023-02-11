@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/10 16:38:28 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/11 09:17:49 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	read_list(int argc, int *contents, t_list **stack_a)
 void	ft_del(void *content)
 {
 //	free(content);
-//	*(int*)content = 0;
-	content = NULL;
+	*(int*)content = 0;
+//	content = NULL;
 }
 
 void	ft_print_list(void *stack_a_el)
