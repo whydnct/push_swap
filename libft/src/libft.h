@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:47:04 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/11 09:21:45 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:42:23 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ typedef struct s_list
 }	t_list;
 //typedef struct s_list_int
 //{
-//	int				*content;
-//	struct s_list	*next;
-//}	t_list_int;
+//	int					*content;
+//	struct s_list_int	*next;
+//}	t_list;
 void		ft_bzero(void *s, size_t n);
 int			ft_isascii(int c);
 int			ft_isalnum(int c);

@@ -1,65 +1,21 @@
-==41107== Memcheck, a memory error detector
-==41107== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==41107== Using Valgrind-3.21.0.GIT-lbmacos and LibVEX; rerun with -h for copyright info
-==41107== Command: bin/push_swap 1 2 3
-==41107== Parent PID: 32173
-==41107== 
-==41107== Invalid read of size 8
-==41107==    at 0x100003E2C: ft_lstlast (in bin/push_swap)
-==41107==    by 0x100003E91: ft_lstadd_back (in bin/push_swap)
-==41107==    by 0x100003AB5: read_list (main.c:36)
-==41107==    by 0x100003BEB: main (main.c:69)
-==41107==  Address 0x100825638 is 0 bytes after a block of size 8 alloc'd
-==41107==    at 0x100124545: malloc (in /System/Volumes/Data/sgoinfre/goinfre/Perso/aperez-m/homebrew/Cellar/valgrind/HEAD-4233f2e/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
-==41107==    by 0x100003BD7: main (main.c:68)
-==41107== 
-==41107== Invalid write of size 8
-==41107==    at 0x100003E96: ft_lstadd_back (in bin/push_swap)
-==41107==    by 0x100003AB5: read_list (main.c:36)
-==41107==    by 0x100003BEB: main (main.c:69)
-==41107==  Address 0x100825638 is 0 bytes after a block of size 8 alloc'd
-==41107==    at 0x100124545: malloc (in /System/Volumes/Data/sgoinfre/goinfre/Perso/aperez-m/homebrew/Cellar/valgrind/HEAD-4233f2e/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
-==41107==    by 0x100003BD7: main (main.c:68)
-==41107== 
-==41107== Use of uninitialised value of size 8
-==41107==    at 0x100003AC0: read_list (main.c:37)
-==41107==    by 0x100003BEB: main (main.c:69)
-==41107== 
-==41107== Invalid read of size 4
-==41107==    at 0x100003AC0: read_list (main.c:37)
-==41107==    by 0x100003BEB: main (main.c:69)
-==41107==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==41107== 
-==41107== 
-==41107== Process terminating with default action of signal 11 (SIGSEGV)
-==41107==  Access not within mapped region at address 0x0
-==41107==    at 0x100003AC0: read_list (main.c:37)
-==41107==    by 0x100003BEB: main (main.c:69)
-==41107==  If you believe this happened as a result of a stack
-==41107==  overflow in your program's main thread (unlikely but
-==41107==  possible), you can try to increase the size of the
-==41107==  main thread stack using the --main-stacksize= flag.
-==41107==  The main thread stack size used in this run was 8388608.
-==41107== 
-==41107== HEAP SUMMARY:
-==41107==     in use at exit: 14,053 bytes in 164 blocks
-==41107==   total heap usage: 178 allocs, 14 frees, 18,797 bytes allocated
-==41107== 
-==41107== 16 bytes in 1 blocks are definitely lost in loss record 6 of 39
-==41107==    at 0x100124545: malloc (in /System/Volumes/Data/sgoinfre/goinfre/Perso/aperez-m/homebrew/Cellar/valgrind/HEAD-4233f2e/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so)
-==41107==    by 0x100003DC5: ft_lstnew (in bin/push_swap)
-==41107==    by 0x100003AA9: read_list (main.c:36)
-==41107==    by 0x100003BEB: main (main.c:69)
-==41107== 
-==41107== LEAK SUMMARY:
-==41107==    definitely lost: 16 bytes in 1 blocks
-==41107==    indirectly lost: 0 bytes in 0 blocks
-==41107==      possibly lost: 0 bytes in 0 blocks
-==41107==    still reachable: 20 bytes in 2 blocks
-==41107==         suppressed: 14,017 bytes in 161 blocks
-==41107== Reachable blocks (those to which a pointer was found) are not shown.
-==41107== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==41107== 
-==41107== Use --track-origins=yes to see where uninitialised values come from
-==41107== For lists of detected and suppressed errors, rerun with: -s
-==41107== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 7 from 7)
+==12865== Memcheck, a memory error detector
+==12865== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==12865== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==12865== Command: bin/push_swap 0 1 2
+==12865== Parent PID: 4935
+==12865== 
+==12865== Conditional jump or move depends on uninitialised value(s)
+==12865==    at 0x1094DC: ft_lstadd_back (in /home/al/42/push_swap/bin/push_swap)
+==12865==    by 0x109216: read_list (main.c:35)
+==12865==    by 0x109328: main (main.c:68)
+==12865== 
+==12865== 
+==12865== HEAP SUMMARY:
+==12865==     in use at exit: 0 bytes in 0 blocks
+==12865==   total heap usage: 5 allocs, 5 frees, 1,084 bytes allocated
+==12865== 
+==12865== All heap blocks were freed -- no leaks are possible
+==12865== 
+==12865== Use --track-origins=yes to see where uninitialised values come from
+==12865== For lists of detected and suppressed errors, rerun with: -s
+==12865== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

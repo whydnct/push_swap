@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 12:26:22 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/10 16:15:37 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:43:06 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
