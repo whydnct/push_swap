@@ -6,16 +6,72 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/12 21:43:54 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:13:58 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push_swap.h"
-/* Checks the validity of the arguments*/
-/*TODO checkar que todos son int*/
-/*
-int	check_argv(char **argv)
+
+/* Checks the validity of the arguments
+TODO checkar que todos son int
+	Size
+		alguno es negativo
+			el mayor positivo sólo puede ser INT_MAX
+	Tipo
+		primer carácter puede ser un más o un menos
+		el resto de caracteres son numéricos
+		max - min < max_unsigned int
+		2147483647 - -2147483648 <= 429496729
+	no duplicados
+*/
+void	error()
+{
+	ft_putstr_fd("Error, check your parametres.", 1);
+	exit(1);
+}
+/* cambiar por un atoi mejorado que, en lugar de exit con 0 en error, exit con error()*/
+int	valid_chars(char *number)
+{
+	int flag;
+
+	flag = 1;
+	if (ft_isdigit(*number) || *number == '+')
+			number++;
+	else if (*number == '-')
+	{
+		flag = -1;
+		number++;
+	}
+	else
+		error;
+	while (*number)
+	{
+		if (!ft_isdigit(*number))
+			error;
+		number++;
+	}
+	return (flag * 1);
+}
+
+int	negative_params(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (argv[i][0] == '+' || argv[i][0] == '-' || ft_isdigit(argv[i][0]))
+		{
+			i++;
+			continue;
+		}
+		return (1);
+	}
+	return (0);
+}
+
+int	check_argv(int argc, char **argv)
 {
 	int	i;
 
@@ -24,7 +80,7 @@ int	check_argv(char **argv)
 	(void)argv;
 	return (1);
 }
-*/
+
 void	read_list(int argc, int *contents, t_list **stack_a_add)
 {
 	int		i;
@@ -56,7 +112,7 @@ void	ft_print_list(void *stack_a_el)
 int	main(int argc, char **argv)
 {
 	t_list		*stack_a;
-	//t_list	*stack_b;
+	t_list		*stack_b;
 	int			*contents;
 	int			i;
 
