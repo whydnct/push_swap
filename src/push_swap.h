@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/05 13:00:46 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/14 21:29:34 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 void	push_a(t_list **stack_b, t_list **stack_a);
 void	push_b(t_list **stack_a, t_list **stack_b);
+void	error(int *contents);
+long	ft_atoi_error(char *number, int *contents);
 /*
 void	r_rotate_a(int **stack, int *size, int in_both_call);
 void	r_rotate_b(int **stack, int *size, int in_both_call);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperez-m <aperez-m@student.42urduliz.co    +#+  +:+       +#+         #
+#    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/02/10 15:56:14 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/02/14 21:12:28 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ ARFLAGS = rcs
 SRC_PATH = src
 SRC =	\
 		moves_push.c\
+		errors.c\
 #		moves_reverse_rotate.c\
 #		moves_rotate.c\
 #		moves_swap.c

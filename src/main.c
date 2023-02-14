@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/13 21:13:58 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/14 21:31:51 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,61 +25,6 @@ TODO checkar que todos son int
 		2147483647 - -2147483648 <= 429496729
 	no duplicados
 */
-void	error()
-{
-	ft_putstr_fd("Error, check your parametres.", 1);
-	exit(1);
-}
-/* cambiar por un atoi mejorado que, en lugar de exit con 0 en error, exit con error()*/
-int	valid_chars(char *number)
-{
-	int flag;
-
-	flag = 1;
-	if (ft_isdigit(*number) || *number == '+')
-			number++;
-	else if (*number == '-')
-	{
-		flag = -1;
-		number++;
-	}
-	else
-		error;
-	while (*number)
-	{
-		if (!ft_isdigit(*number))
-			error;
-		number++;
-	}
-	return (flag * 1);
-}
-
-int	negative_params(int argc, char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (argv[i][0] == '+' || argv[i][0] == '-' || ft_isdigit(argv[i][0]))
-		{
-			i++;
-			continue;
-		}
-		return (1);
-	}
-	return (0);
-}
-
-int	check_argv(int argc, char **argv)
-{
-	int	i;
-
-	i = 0;
-	(void)i;
-	(void)argv;
-	return (1);
-}
 
 void	read_list(int argc, int *contents, t_list **stack_a_add)
 {
@@ -118,9 +63,11 @@ int	main(int argc, char **argv)
 
 	//check_argv(argv);
 	contents = malloc(sizeof(int) * (argc - 1));
+	if (!contents)
+		exit(1);
 	i = 0;
 	while (++i < argc)
-		contents[i - 1] = ft_atoi(argv[i]);
+		contents[i - 1] = ft_atoi_error(argv[i], contents);
 	read_list(argc, contents, &stack_a);
 //	push_b(stack_a, stack_b);
 //	push_swap(stack_a, stack_b);
