@@ -6,27 +6,14 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/14 21:31:51 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:54:48 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push_swap.h"
 
-/* Checks the validity of the arguments
-TODO checkar que todos son int
-	Size
-		alguno es negativo
-			el mayor positivo sólo puede ser INT_MAX
-	Tipo
-		primer carácter puede ser un más o un menos
-		el resto de caracteres son numéricos
-		max - min < max_unsigned int
-		2147483647 - -2147483648 <= 429496729
-	no duplicados
-*/
-
-void	read_list(int argc, int *contents, t_list **stack_a_add)
+void	read_list(int argc, unsigned int *contents, t_list **stack_a_add)
 {
 	int		i;
 
@@ -41,33 +28,29 @@ void	read_list(int argc, int *contents, t_list **stack_a_add)
 /*do not free, i haven't malloc'ed*/
 void	ft_del(void *content)
 {
-	*(int*)content = 0;
+	*(unsigned int*)content = 0;
 }
 
 void	ft_print_list(void *stack_a_el)
 {
-	printf("content: %d \n", *(int *)stack_a_el);
+	printf("content: %u \n", *(unsigned int *)stack_a_el);
 	printf("address: %p \n", stack_a_el);
 }
 
-	/*stack_a = malloc(sizeof(t_list *)); si aloco stack_a
-	ft_lstaddback entra en el if, dejando un primer elemento
-	de la lista vacío de contenido, no debo alocar, ni lo necesito
-	*/
+/*stack_a = malloc(sizeof(t_list *)); si aloco stack_a
+ft_lstaddback entra en el if, dejando un primer elemento
+de la lista vacío de contenido, no debo alocar, ni lo necesito
+*/
 int	main(int argc, char **argv)
 {
-	t_list		*stack_a;
-	t_list		*stack_b;
-	int			*contents;
-	int			i;
+	t_list					*stack_a;
+	//t_list					*stack_b;
+	unsigned int			*contents;
 
-	//check_argv(argv);
-	contents = malloc(sizeof(int) * (argc - 1));
+	contents = malloc(sizeof(unsigned int) * (argc - 1));
 	if (!contents)
 		exit(1);
-	i = 0;
-	while (++i < argc)
-		contents[i - 1] = ft_atoi_error(argv[i], contents);
+	check_argv(argc, argv, contents);	
 	read_list(argc, contents, &stack_a);
 //	push_b(stack_a, stack_b);
 //	push_swap(stack_a, stack_b);

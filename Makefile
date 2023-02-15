@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/02/14 21:12:28 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/02/15 20:36:36 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ ARFLAGS = rcs
 
 SRC_PATH = src
 SRC =	\
+		errors.c \
 		moves_push.c\
-		errors.c\
 #		moves_reverse_rotate.c\
 #		moves_rotate.c\
 #		moves_swap.c

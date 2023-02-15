@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/14 21:29:34 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:31:41 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@
 # include <stdlib.h>
 # include "../libft/src/libft.h"
 
-void	push_a(t_list **stack_b, t_list **stack_a);
-void	push_b(t_list **stack_a, t_list **stack_b);
-void	error(int *contents);
-long	ft_atoi_error(char *number, int *contents);
+long			ft_atoi_error(char *number, unsigned int *contents);
+void			check_length(char *number, unsigned int *contents);
+unsigned int	check_range(long number, unsigned int *contents);
+void			check_argv(int argc, char **argv, unsigned int *contents);
 /*
+void			push_a(t_list **stack_b, t_list **stack_a);
+void			push_b(t_list **stack_a, t_list **stack_b);
+void			error(unsigned int *contents, int type_error);
 void	r_rotate_a(int **stack, int *size, int in_both_call);
 void	r_rotate_b(int **stack, int *size, int in_both_call);
 void	r_rotate_both(int **stack_a, int **stack_b, int *size_a, int *size_b);
