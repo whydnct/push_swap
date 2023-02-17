@@ -6,14 +6,14 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/17 22:31:55 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/17 22:35:13 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push_swap.h"
 
-void	read_list(t_bundle *bundle)
+void	fill_stack_a(t_bundle *bundle)
 {
 	unsigned int		i;
 
@@ -102,7 +102,7 @@ int	main(int argc, char **argv)
 	check_argv(argc, argv, &bundle);
 	check_ordered(&bundle);
 	normalize(&bundle);
-	read_list(&bundle);
+	fill_stack_a(&bundle);
 	ft_lstiter(bundle.stack_a, &ft_print_list);
 	printf("clearing memory\n");
 	ft_lstclear(&bundle.stack_a, &ft_del);
