@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/17 18:46:02 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:51:41 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ long	ft_atoi_error(char *number, t_bundle *bundle)
 void	check_length(char *number, t_bundle *bundle)
 {
 	if (ft_strlen(number) > 11)
-		error(bundle->contents, 1);
+		error(bundle, 1);
 }
 
 unsigned int	check_range(long number, t_bundle *bundle)

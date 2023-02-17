@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/17 18:46:48 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:52:40 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	read_list(int argc, t_bundle *bundle)
 	i = 0;
 	while (i < argc - 1)
 	{
-		ft_lstadd_back(bundle->stack_a, ft_lstnew(bundle->contents + i));
+		ft_lstadd_back(&bundle->stack_a, ft_lstnew(bundle->contents + i));
 		i++;
 	}
 }
