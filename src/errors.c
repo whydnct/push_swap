@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/17 18:51:41 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/17 22:13:25 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	error(t_bundle *bundle, int type_error)
 	exit(1);
 }
 
-long	ft_atoi_error(char *number, t_bundle *bundle)
+unsigned int	check_bounds(char *number, t_bundle *bundle)
 {
 	int			sign;
 	long		res;
@@ -48,7 +48,9 @@ long	ft_atoi_error(char *number, t_bundle *bundle)
 	}
 	if (*number)
 		error(bundle, 2);
-	return (sign * res);
+	if (sign * res < -2147483648 || 2147483647 < sign * res)
+		error(bundle, 3);
+	return ((unsigned int)(-2147483648 + sign * res));
 }
 
 void	check_length(char *number, t_bundle *bundle)
@@ -57,32 +59,41 @@ void	check_length(char *number, t_bundle *bundle)
 		error(bundle, 1);
 }
 
-unsigned int	check_range(long number, t_bundle *bundle)
+void	check_duplicate(int i, t_bundle *bundle, unsigned int dummy)
 {
-	if (number < -2147483648 || 2147483647 < number)
-		error(bundle, 3);
-	return (2147483648 + (unsigned int)number);
+	int	j;
+
+	j = 0;
+	while (j < i - 1)
+	{
+		if (bundle->contents[j] == dummy)
+			error(bundle, 4);
+		j++;
+	}
 }
 
 void	check_argv(int argc, char **argv, t_bundle *bundle)
 {
 	int				i;
 	unsigned int	dummy;
-	int				j;
 
 	i = 0;
-	j = 0;
+	bundle->bounds[0] = 4294967295;
 	while (++i < argc)
 	{
 		check_length(argv[i], bundle);
-		dummy = check_range(ft_atoi_error(argv[i], bundle), bundle);
-		while (j < i - 1)
-		{
-			if (bundle->contents[j] == dummy)
-				error(bundle, 4);
-			j++;
-		}
-		j = 0;
+		dummy = check_bounds(argv[i], bundle);
+		check_duplicate(i, bundle, dummy);
 		bundle->contents[i - 1] = dummy;
+		if (dummy < bundle->bounds[0])
+			bundle->bounds[0] = dummy;
 	}
+	while (--i >= 1)
+	{
+		bundle->contents[i - 1] -= bundle->bounds[0];
+		if (bundle->contents[i - 1] > bundle->bounds[1])
+			bundle->bounds[1] = bundle->contents[i - 1];
+	}
+	bundle->bounds[0] = 0;
+	bundle->size = argc - 1;
 }

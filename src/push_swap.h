@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/17 18:36:05 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/17 22:13:36 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,16 @@ typedef struct s_stack
 } t_stack;
 typedef struct s_bundle
 {
+	unsigned int			bounds[2];
 	unsigned int			*contents;
+	unsigned int			size;
 	t_list					*stack_a;
 	t_list					*stack_b;
 }	t_bundle;
-long			ft_atoi_error(char *number, t_bundle *bundle);
-void			check_length(char *number, t_bundle *bundle);
-unsigned int	check_range(long number, t_bundle *bundle);
-void			check_argv(int argc, char **argv, t_bundle *bundle);
+unsigned int			check_bounds(char *number, t_bundle *bundle);
+void					check_length(char *number, t_bundle *bundle);
+void					check_argv(int argc, char **argv, t_bundle *bundle);
+void					check_duplicate(int i, t_bundle *bundle, unsigned int dummy);
 /*
 void			push_a(t_list **stack_b, t_list **stack_a);
 void			push_b(t_list **stack_a, t_list **stack_b);
