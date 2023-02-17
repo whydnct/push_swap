@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/17 22:24:04 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/17 22:38:40 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ void	error(t_bundle *bundle, int type_error)
 		ft_putstr_fd("Error, repeated parametre.\n", 2);
 	free(bundle->contents);
 	exit(1);
+}
+
+void	check_length(char *number, t_bundle *bundle)
+{
+	if (ft_strlen(number) > 11)
+		error(bundle, 1);
 }
 
 unsigned int	check_bounds(char *number, t_bundle *bundle)
@@ -51,12 +57,6 @@ unsigned int	check_bounds(char *number, t_bundle *bundle)
 	if (sign * res < -2147483648 || 2147483647 < sign * res)
 		error(bundle, 3);
 	return ((unsigned int)(-2147483648 + sign * res));
-}
-
-void	check_length(char *number, t_bundle *bundle)
-{
-	if (ft_strlen(number) > 11)
-		error(bundle, 1);
 }
 
 void	check_duplicate(int i, t_bundle *bundle, unsigned int dummy)
