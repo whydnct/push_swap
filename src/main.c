@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/17 22:09:59 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/17 22:31:55 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,24 +70,39 @@ void	normalize(t_bundle *bundle)
 	}
 }
 
+void	check_ordered(t_bundle *bundle)
+{
+	unsigned int	i;
+
+	i = 1;
+	while (i < bundle->size - 1)
+	{
+		if (bundle->contents[i - 1] < bundle->contents[i] && bundle->contents[i] < bundle->contents[i + 1])
+			i++;
+	}
+	if (i == bundle->size - 1)
+	{
+		ft_putstr_fd("Nothing to do, it's already ordered.\n", 1);
+		free(bundle->contents);
+		exit(0);
+	}
+}
+
 /*stack_a = malloc(sizeof(t_list *)); si aloco stack_a
 ft_lstaddback entra en el if, dejando un primer elemento
 de la lista vacío de contenido, no debo alocar, ni lo necesito
 */
 int	main(int argc, char **argv)
 {
-	//t_list					*stack_a;
-	//t_list					*stack_b;
 	t_bundle	bundle;
 
 	bundle.contents = malloc(sizeof(unsigned int) * (argc - 1));
 	if (!bundle.contents)
 		exit(1);
 	check_argv(argc, argv, &bundle);
+	check_ordered(&bundle);
 	normalize(&bundle);
 	read_list(&bundle);
-//	push_b(stack_a, stack_b);
-//	push_swap(stack_a, stack_b);
 	ft_lstiter(bundle.stack_a, &ft_print_list);
 	printf("clearing memory\n");
 	ft_lstclear(&bundle.stack_a, &ft_del);
