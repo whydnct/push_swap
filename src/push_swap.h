@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/15 20:31:41 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:36:05 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,23 @@
 # include <stdlib.h>
 # include "../libft/src/libft.h"
 
-long			ft_atoi_error(char *number, unsigned int *contents);
-void			check_length(char *number, unsigned int *contents);
-unsigned int	check_range(long number, unsigned int *contents);
-void			check_argv(int argc, char **argv, unsigned int *contents);
+typedef struct s_stack
+{
+	void			*content;
+	struct s_stack	*next;
+	struct s_bundle	*bundle;
+
+} t_stack;
+typedef struct s_bundle
+{
+	unsigned int			*contents;
+	t_list					*stack_a;
+	t_list					*stack_b;
+}	t_bundle;
+long			ft_atoi_error(char *number, t_bundle *bundle);
+void			check_length(char *number, t_bundle *bundle);
+unsigned int	check_range(long number, t_bundle *bundle);
+void			check_argv(int argc, char **argv, t_bundle *bundle);
 /*
 void			push_a(t_list **stack_b, t_list **stack_a);
 void			push_b(t_list **stack_a, t_list **stack_b);

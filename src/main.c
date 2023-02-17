@@ -6,21 +6,21 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/15 20:54:48 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:46:48 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push_swap.h"
 
-void	read_list(int argc, unsigned int *contents, t_list **stack_a_add)
+void	read_list(int argc, t_bundle *bundle)
 {
 	int		i;
 
 	i = 0;
 	while (i < argc - 1)
 	{
-		ft_lstadd_back(stack_a_add, ft_lstnew(contents + i));
+		ft_lstadd_back(bundle->stack_a, ft_lstnew(bundle->contents + i));
 		i++;
 	}
 }
@@ -43,19 +43,19 @@ de la lista vacío de contenido, no debo alocar, ni lo necesito
 */
 int	main(int argc, char **argv)
 {
-	t_list					*stack_a;
+	//t_list					*stack_a;
 	//t_list					*stack_b;
-	unsigned int			*contents;
+	t_bundle	bundle;
 
-	contents = malloc(sizeof(unsigned int) * (argc - 1));
-	if (!contents)
+	bundle.contents = malloc(sizeof(unsigned int) * (argc - 1));
+	if (!bundle.contents)
 		exit(1);
-	check_argv(argc, argv, contents);	
-	read_list(argc, contents, &stack_a);
+	check_argv(argc, argv, &bundle);
+	read_list(argc, &bundle);
 //	push_b(stack_a, stack_b);
 //	push_swap(stack_a, stack_b);
-	ft_lstiter(stack_a, &ft_print_list);
+	ft_lstiter(bundle.stack_a, &ft_print_list);
 	printf("clearing memory\n");
-	ft_lstclear(&stack_a, &ft_del);
-	free(contents);
+	ft_lstclear(&bundle.stack_a, &ft_del);
+	free(bundle.contents);
 }

@@ -6,13 +6,13 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/15 20:53:54 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:46:02 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(unsigned int *contents, int type_error)
+void	error(t_bundle *bundle, int type_error)
 {
 	if (type_error == 1)
 		ft_putstr_fd("Error, parametre too long.\n", 2);
@@ -22,11 +22,11 @@ void	error(unsigned int *contents, int type_error)
 		ft_putstr_fd("Error, parametre out of bounds.\n", 2);
 	else if (type_error == 4)
 		ft_putstr_fd("Error, repeated parametre.\n", 2);
-	free(contents);
+	free(bundle->contents);
 	exit(1);
 }
 
-long	ft_atoi_error(char *number, unsigned int *contents)
+long	ft_atoi_error(char *number, t_bundle *bundle)
 {
 	int			sign;
 	long		res;
@@ -40,31 +40,31 @@ long	ft_atoi_error(char *number, unsigned int *contents)
 		number++;
 	}	
 	else if (!ft_isdigit(*number))
-		error(contents, 2);
+		error(bundle, 2);
 	while (*number >= '0' && *number <= '9')
 	{
 		res = res * 10 + *number - '0';
 		number++;
 	}
 	if (*number)
-		error(contents, 2);
+		error(bundle, 2);
 	return (sign * res);
 }
 
-void	check_length(char *number, unsigned int *contents)
+void	check_length(char *number, t_bundle *bundle)
 {
 	if (ft_strlen(number) > 11)
-		error(contents, 1);
+		error(bundle->contents, 1);
 }
 
-unsigned int	check_range(long number, unsigned int *contents)
+unsigned int	check_range(long number, t_bundle *bundle)
 {
 	if (number < -2147483648 || 2147483647 < number)
-		error(contents, 3);
+		error(bundle, 3);
 	return (2147483648 + (unsigned int)number);
 }
 
-void	check_argv(int argc, char **argv, unsigned int *contents)
+void	check_argv(int argc, char **argv, t_bundle *bundle)
 {
 	int				i;
 	unsigned int	dummy;
@@ -74,15 +74,15 @@ void	check_argv(int argc, char **argv, unsigned int *contents)
 	j = 0;
 	while (++i < argc)
 	{
-		check_length(argv[i], contents);
-		dummy = check_range(ft_atoi_error(argv[i], contents), contents);
+		check_length(argv[i], bundle);
+		dummy = check_range(ft_atoi_error(argv[i], bundle), bundle);
 		while (j < i - 1)
 		{
-			if (contents[j] == dummy)
-				error(contents, 4);
+			if (bundle->contents[j] == dummy)
+				error(bundle, 4);
 			j++;
 		}
 		j = 0;
-		contents[i - 1] = dummy;
+		bundle->contents[i - 1] = dummy;
 	}
 }
