@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:37:33 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/18 20:51:40 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/18 21:23:57 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,17 @@ int	get_max_iters(t_bundle bundle)
 	return (counter);
 }
 
-void	radix_one_pos(t_bundle *bundle, int i)
+void	radix_one_position(t_bundle *bundle, int i)
 {
 	int		first_rotation;
 	t_list	*first_rotated;
 
 
+	first_rotation = 0;
+	first_rotated = NULL;
 	while (bundle->stack_a != first_rotated)
 	{	
-		if (*(int *)(bundle)->stack_a->content >> i == 0)
+		if (((*(int *)(bundle)->stack_a->content >> i)&1) == 0)
 			push_b(bundle);
 		else
 		{
@@ -55,16 +57,16 @@ void	radix_all_positions(t_bundle *bundle)
 {
 	int	i;
 	int	max_iters;
-	int	first_rotation;
-	t_list	*first_rotated;
 
 	i = 0;
-	first_rotation = 0;
-	first_rotated = NULL;
 	max_iters = get_max_iters(*bundle);
 	while (i < max_iters)
 	{
 		radix_one_position(bundle, i);
+		ft_lstiter(bundle->stack_a, &ft_print_list);
+		ft_putstr_fd("----a\n",1);
+		ft_lstiter(bundle->stack_b, &ft_print_list);
+		ft_putstr_fd("----b\n",1);
 		i++;
 	}
 }

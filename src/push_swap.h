@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/18 20:57:56 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/18 21:24:35 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ void					check_length(char *number, t_bundle *bundle);
 void					check_argv(int argc, char **argv, t_bundle *bundle);
 void					check_duplicate(int i, t_bundle *bundle, unsigned int dummy);
 int						get_max_iters(t_bundle bundle);
-void					radix_one_pos(t_bundle *bundle, int i);
+void					radix_one_position(t_bundle *bundle, int i);
 void					radix_all_positions(t_bundle *bundle);
 void					push_b(t_bundle *bundle);
 void					push_a(t_bundle *bundle);
 void					rotate_a(t_bundle *bundle);
+void					ft_print_list(void *stack_a_el);
 /*
 void			push_a(t_list **stack_b, t_list **stack_a);
 void			push_b(t_list **stack_a, t_list **stack_b);

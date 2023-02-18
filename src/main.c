@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/18 10:26:26 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/18 21:02:48 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ int	main(int argc, char **argv)
 	check_argv(argc, argv, &bundle);
 	check_ordered(&bundle);
 	normalize(&bundle);
-	//get_max_iters(bundle);
 	fill_stack_a(&bundle);
+	radix_all_positions(&bundle);
 	ft_lstiter(bundle.stack_a, &ft_print_list);
 	ft_lstclear(&bundle.stack_a, &ft_del);
 	printf("memory cleared.\n");
