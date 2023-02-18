@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/17 22:35:13 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/18 10:26:26 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,9 @@ void	check_ordered(t_bundle *bundle)
 	i = 1;
 	while (i < bundle->size - 1)
 	{
-		if (bundle->contents[i - 1] < bundle->contents[i] && bundle->contents[i] < bundle->contents[i + 1])
-			i++;
+		if (bundle->contents[i - 1] > bundle->contents[i] || bundle->contents[i] > bundle->contents[i + 1])
+			return;
+		i++;
 	}
 	if (i == bundle->size - 1)
 	{
@@ -102,9 +103,10 @@ int	main(int argc, char **argv)
 	check_argv(argc, argv, &bundle);
 	check_ordered(&bundle);
 	normalize(&bundle);
+	//get_max_iters(bundle);
 	fill_stack_a(&bundle);
 	ft_lstiter(bundle.stack_a, &ft_print_list);
-	printf("clearing memory\n");
 	ft_lstclear(&bundle.stack_a, &ft_del);
+	printf("memory cleared.\n");
 	free(bundle.contents);
 }

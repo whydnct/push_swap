@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/17 22:13:36 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/18 08:06:59 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ unsigned int			check_bounds(char *number, t_bundle *bundle);
 void					check_length(char *number, t_bundle *bundle);
 void					check_argv(int argc, char **argv, t_bundle *bundle);
 void					check_duplicate(int i, t_bundle *bundle, unsigned int dummy);
+int						get_max_iters(t_bundle bundle);
 /*
 void			push_a(t_list **stack_b, t_list **stack_a);
 void			push_b(t_list **stack_a, t_list **stack_b);

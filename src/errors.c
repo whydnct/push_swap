@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/17 22:38:40 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/18 07:47:03 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	check_argv(int argc, char **argv, t_bundle *bundle)
 
 	i = 0;
 	bundle->bounds[0] = 4294967295;
+	bundle->bounds[1] = 0;
 	while (++i < argc)
 	{
 		check_length(argv[i], bundle);

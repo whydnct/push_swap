@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/02/15 20:36:36 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/02/18 07:28:42 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,15 @@ AR = ar
 ARFLAGS = rcs
 
 SRC_PATH = src
-SRC =	\
-		errors.c \
-		moves_push.c\
-#		moves_reverse_rotate.c\
-#		moves_rotate.c\
-#		moves_swap.c
+SRC = \
+	errors.c \
+	radix.c 
+#	moves_push.c\
+#	moves_reverse_rotate.c\
+#	moves_rotate.c\
+#	moves_swap.c
 
-INCLUDE = $(SRC_PATH)push_swap.h
+INCLUDE = $(SRC_PATH)/push_swap.h
 
 OBJ_PATH = obj
 OBJ = $(addprefix $(OBJ_PATH)/, $(SRC:.c=.o))
@@ -79,13 +80,13 @@ $(LIB_PATH):
 	@mkdir -p $@
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH) $(LIB_PATH)
-	@$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NEW_LIB_A): $(OBJ)
 	@make -C ./libft
 	@cp libft/libft.a $(LIB_A)
 	@cp $(LIB_A) $@
-	@$(AR) $(ARFLAGS) $@ $<
+	@$(AR) $(ARFLAGS) $@ $^
 
 $(NAME): $(NEW_LIB_A) $(OBJ) | $(BIN_PATH)
 	@$(CC) $(CFLAGS) $(SRC_PATH)/main.c -L$(LIB_PATH) -l$(NAME) -o $(BIN_PATH)/$(NAME)
