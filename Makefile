@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/02/19 10:00:20 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/02/19 16:31:56 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC_PATH = src
 SRC = \
 	errors.c \
 	radix.c \
-	moves.c
+	moves.c \
+	debuggers.c
 #	moves_push.c\
 #	moves_reverse_rotate.c\
 #	moves_rotate.c\

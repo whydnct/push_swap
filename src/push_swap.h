@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/19 09:40:03 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 16:31:35 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void					push_a(t_bundle *bundle);
 void					rotate_a(t_bundle *bundle);
 void					ft_print_list(void *stack_a_el);
 void					ft_print_bundle(t_bundle bundle);
+void					ft_print_bundle_contents(t_bundle *bundle);
 /*
 void			push_a(t_list **stack_b, t_list **stack_a);
 void			push_b(t_list **stack_a, t_list **stack_b);

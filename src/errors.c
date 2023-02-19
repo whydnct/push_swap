@@ -6,12 +6,12 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/19 12:44:15 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 16:15:57 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 void	error(t_bundle *bundle, int type_error)
 {
@@ -37,8 +37,8 @@ void	check_length(char *number, t_bundle *bundle)
 
 unsigned int	check_bounds(char *number, t_bundle *bundle)
 {
-	int			sign;
-	long		res;
+	int				sign;
+	long			res;
 
 	sign = 1;
 	res = 0;
@@ -59,8 +59,7 @@ unsigned int	check_bounds(char *number, t_bundle *bundle)
 		error(bundle, 2);
 	if (sign * res < -2147483648 || 2147483647 < sign * res)
 		error(bundle, 3); 
-	printf("%ld / %u \n", res * sign, (unsigned int)(res * sign + 2147483648));
-	return ((unsigned int)(res * sign + 2147483648));
+	return (2147483648 + sign * res);
 }
 
 void	check_duplicate(int i, t_bundle *bundle, unsigned int dummy)
@@ -89,9 +88,9 @@ void	check_argv(int argc, char **argv, t_bundle *bundle)
 		check_length(argv[i], bundle);
 		dummy = check_bounds(argv[i], bundle);
 		check_duplicate(i, bundle, dummy);
-		bundle->contents[i - 1] = dummy;
 		if (dummy < bundle->bounds[0])
 			bundle->bounds[0] = dummy;
+		bundle->contents[i - 1] = dummy;
 	}
 	while (--i >= 1)
 	{

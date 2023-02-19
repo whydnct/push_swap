@@ -51,6 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Reports and Results
+# Reports, Results and testers
 *.rpt
 results
+push_swap_tester
