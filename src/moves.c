@@ -6,11 +6,12 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 18:46:41 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/19 09:08:24 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 10:07:48 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 /*
 sa: swap a - intercambia los dos primeros elementos encima del stack a. No hace nada si hay uno o menos elementos.
 sb: swap b - intercambia los dos primeros elementos encima del stack b. No hace nada si hay uno o menos elementos.
@@ -34,8 +35,10 @@ void	push_b(t_bundle *bundle)
 		dummy = bundle->stack_a->next;
 		ft_lstadd_front(&bundle->stack_b, bundle->stack_a);
 		bundle->stack_a = dummy;
+		bundle->moves++;
 		ft_putstr_fd("pb\n", 1);
-		ft_print_bundle(*bundle);
+		//printf("mov nbr %d\n", bundle->moves);
+		//ft_print_bundle(*bundle);
 	}
 }
 
@@ -48,8 +51,10 @@ void	push_a(t_bundle *bundle)
 		dummy = bundle->stack_b->next;
 		ft_lstadd_front(&bundle->stack_a, bundle->stack_b);
 		bundle->stack_b = dummy;
+		bundle->moves++;
 		ft_putstr_fd("pa\n", 1);
-		ft_print_bundle(*bundle);
+		//printf("mov nbr %d\n", bundle->moves);
+		//ft_print_bundle(*bundle);
 	}
 }
 
@@ -64,6 +69,7 @@ void	rotate_a(t_bundle *bundle)
 	ft_lstlast(bundle->stack_a)->next = bundle->stack_a;
 	bundle->stack_a->next = NULL;
 	bundle->stack_a = dummy;
-	ft_putstr_fd("ra\n", 1);
-	ft_print_bundle(*bundle);
+	bundle->moves++;
+	//printf("mov nbr %d\n", bundle->moves);
+	//ft_putstr_fd("ra\n", 1);
 }

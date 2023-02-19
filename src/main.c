@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/19 09:25:42 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 13:10:05 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,22 +113,28 @@ void	normalize(t_bundle *bundle)
 			i++;
 		}
 	}
+	while (i > 0)
+	{
+		printf("%u - ", bundle->contents[i]);
+		i--;
+	}
+	printf("%u\n", bundle->contents[i]);
 }
 
 void	check_ordered(t_bundle *bundle)
 {
 	unsigned int	i;
 
-	i = 1;
+	i = 0;
 	while (i < bundle->size - 1)
 	{
-		if (bundle->contents[i - 1] > bundle->contents[i] || bundle->contents[i] > bundle->contents[i + 1])
+		if (bundle->contents[i] > bundle->contents[i + 1])
 			return;
 		i++;
 	}
 	if (i == bundle->size - 1)
 	{
-		ft_putstr_fd("Nothing to do, it's already ordered.\n", 1);
+		//ft_putstr_fd("Nothing to do, it's already ordered.\n", 1);
 		free(bundle->contents);
 		exit(0);
 	}
@@ -142,6 +148,11 @@ int	main(int argc, char **argv)
 {
 	t_bundle	bundle;
 
+	if (argc < 2)
+	{
+		//printf("argc: %d\n", argc);
+		return (0);
+	}
 	bundle.contents = malloc(sizeof(unsigned int) * (argc - 1));
 	if (!bundle.contents)
 		exit(1);
@@ -149,11 +160,13 @@ int	main(int argc, char **argv)
 	check_ordered(&bundle);
 	normalize(&bundle);
 	fill_stack_a(&bundle);
-	ft_print_bundle(bundle);
+	//ft_print_bundle(bundle);
 	radix_all_positions(&bundle);
 	ft_print_bundle(bundle);
+	//printf("%d moves\n", bundle.moves);
 	//ft_lstiter(bundle.stack_a, &ft_print_list);
 	ft_lstclear(&bundle.stack_a, &ft_del);
-	printf("memory cleared.\n");
+	ft_lstclear(&bundle.stack_b, &ft_del);
+	//printf("memory cleared.\n");
 	free(bundle.contents);
 }

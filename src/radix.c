@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:37:33 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/19 09:29:00 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 10:08:09 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	get_max_iters(t_bundle bundle)
 		bundle.size>>=1;
 		counter++;
 	}
-	printf("max iters:%d\n", counter);
+	//printf("max iters:%d\n", counter);
 	return (counter);
 }
 

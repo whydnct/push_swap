@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/19 09:07:31 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 09:40:03 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_bundle
 	unsigned int			size;
 	t_list					*stack_a;
 	t_list					*stack_b;
+	int						moves;
 }	t_bundle;
 unsigned int			check_bounds(char *number, t_bundle *bundle);
 void					check_length(char *number, t_bundle *bundle);
