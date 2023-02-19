@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:37:33 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/18 21:23:57 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 09:29:00 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	radix_one_position(t_bundle *bundle, int i)
 			push_b(bundle);
 		else
 		{
-			rotate_a(bundle);
 			if (first_rotation == 0)
 			{
 				first_rotated = (bundle)->stack_a;
 				first_rotation = 1;
 			}
+			rotate_a(bundle);
 		}
 	}
 	while (bundle->stack_b)
@@ -63,10 +63,6 @@ void	radix_all_positions(t_bundle *bundle)
 	while (i < max_iters)
 	{
 		radix_one_position(bundle, i);
-		ft_lstiter(bundle->stack_a, &ft_print_list);
-		ft_putstr_fd("----a\n",1);
-		ft_lstiter(bundle->stack_b, &ft_print_list);
-		ft_putstr_fd("----b\n",1);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/18 21:02:48 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 09:25:42 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,53 @@ void	ft_del(void *content)
 
 void	ft_print_list(void *stack_a_el)
 {
-	printf("content: %u \n", *(unsigned int *)stack_a_el);
-	printf("address: %p \n", stack_a_el);
+	printf("content: %u @ %p\n", *(unsigned int *)stack_a_el, stack_a_el);
+}
+
+void ft_print_bundle(t_bundle bundle)
+{
+	int	size_a;
+	int	size_b;
+	int	i;
+
+	i = 0;
+	size_a = ft_lstsize(bundle.stack_a);
+	size_b = ft_lstsize(bundle.stack_b);
+
+	if (size_a > size_b)
+	{
+		while (i < size_a - size_b)
+		{
+			printf("%u @ %p \n", *(unsigned int*)bundle.stack_a->content, bundle.stack_a);
+			bundle.stack_a = bundle.stack_a->next;
+			i++;
+		}
+		while (i < size_a)
+		{
+			printf("%u @ %p \t\t\t %u @ %p \n", *(unsigned int*)bundle.stack_a->content, bundle.stack_a, *(unsigned int*)bundle.stack_b->content, bundle.stack_b);
+			bundle.stack_b = bundle.stack_b->next;
+			bundle.stack_a = bundle.stack_a->next;
+			i++;
+		}
+	}
+	else
+	{
+		while (i < size_b - size_a)
+		{
+			printf("               \t\t\t %u @ %p \n", *(unsigned int*)bundle.stack_b->content, bundle.stack_b);
+			bundle.stack_b = bundle.stack_b->next;
+			i++;
+		}
+		while (i < size_b)
+		{
+			printf("%u @ %p \t\t\t %u @ %p \n", *(unsigned int*)bundle.stack_a->content, bundle.stack_a, *(unsigned int*)bundle.stack_b->content, bundle.stack_b);
+			bundle.stack_b = bundle.stack_b->next;
+			bundle.stack_a = bundle.stack_a->next;
+			i++;
+		}
+	}
+	printf("---------------a\t\t----------------b\n");
+
 }
 
 void	normalize(t_bundle *bundle)
@@ -104,8 +149,10 @@ int	main(int argc, char **argv)
 	check_ordered(&bundle);
 	normalize(&bundle);
 	fill_stack_a(&bundle);
+	ft_print_bundle(bundle);
 	radix_all_positions(&bundle);
-	ft_lstiter(bundle.stack_a, &ft_print_list);
+	ft_print_bundle(bundle);
+	//ft_lstiter(bundle.stack_a, &ft_print_list);
 	ft_lstclear(&bundle.stack_a, &ft_del);
 	printf("memory cleared.\n");
 	free(bundle.contents);

@@ -51,5 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Valgrind reports
+# Reports and Results
 *.rpt
+results
