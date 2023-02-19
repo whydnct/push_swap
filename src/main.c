@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/19 16:31:26 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 20:38:27 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void normalize(t_bundle *bundle)
 	unsigned int previous;
 	int flag;
 
-	//ft_print_bundle_contents(bundle);
+	ft_print_bundle_contents(bundle);
 	i = 0;
 	j = 0;
 	flag = 1;
@@ -61,12 +61,12 @@ void normalize(t_bundle *bundle)
 				bundle->contents[i] = previous + 1;
 				flag = 1;
 			}
-			//ft_print_bundle_contents(bundle);
+			ft_print_bundle_contents(bundle);
 			j = 0;
 			i++;
 		}
 	}
-	//ft_print_bundle_contents(bundle);
+	ft_print_bundle_contents(bundle);
 }
 
 void check_ordered(t_bundle *bundle)
@@ -105,9 +105,9 @@ int main(int argc, char **argv)
 	check_ordered(&bundle);
 	normalize(&bundle);
 	fill_stack_a(&bundle);
-	// ft_print_bundle(bundle);
+	ft_print_bundle(bundle);
 	radix_all_positions(&bundle);
-	//ft_print_bundle(bundle);
+	ft_print_bundle(bundle);
 	// printf("%d moves\n", bundle.moves);
 	// ft_lstiter(bundle.stack_a, &ft_print_list);
 	ft_lstclear(&bundle.stack_a, &ft_del);

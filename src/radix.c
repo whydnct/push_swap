@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:37:33 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/19 10:08:09 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/19 21:02:56 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	get_max_iters(t_bundle bundle)
 		bundle.size>>=1;
 		counter++;
 	}
-	//printf("max iters:%d\n", counter);
+	printf("max iters:%d\n", counter);
 	return (counter);
 }
 
@@ -35,18 +35,21 @@ void	radix_one_position(t_bundle *bundle, int i)
 
 	first_rotation = 0;
 	first_rotated = NULL;
-	while (bundle->stack_a != first_rotated)
+	while (bundle->stack_a != first_rotated && bundle->stack_a->next)
 	{	
-		if (((*(int *)(bundle)->stack_a->content >> i)&1) == 0)
+		if (((*(int *)bundle->stack_a->content >> i)&1) == 0)
 			push_b(bundle);
 		else
 		{
-			if (first_rotation == 0)
+			if (bundle->stack_a->next)
 			{
-				first_rotated = (bundle)->stack_a;
-				first_rotation = 1;
+				if (first_rotation == 0)
+				{
+					first_rotated = (bundle)->stack_a;
+					first_rotation = 1;
+				}
+				rotate_a(bundle);
 			}
-			rotate_a(bundle);
 		}
 	}
 	while (bundle->stack_b)
@@ -65,4 +68,5 @@ void	radix_all_positions(t_bundle *bundle)
 		radix_one_position(bundle, i);
 		i++;
 	}
+	printf("exit radix all positions\n");
 }
