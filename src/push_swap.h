@@ -6,12 +6,16 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/19 16:31:35 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/20 18:45:56 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define UINT_MAX 4294967295
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+# define INT_MIN_ABS 2147483648
 
 # include <unistd.h>
 # include <stdlib.h>
