@@ -6,15 +6,18 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/20 18:46:19 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/22 22:16:17 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//#include <stdio.h>
+#include <stdio.h>
 
 void	error(t_bundle *bundle, int type_error)
 {
+	unsigned int	i;
+
+	i = 0;
 	if (type_error == 1)
 		ft_putstr_fd("Error"/*, parametre too long."*/"\n", 2);
 	else if (type_error == 2)
@@ -27,77 +30,61 @@ void	error(t_bundle *bundle, int type_error)
 	exit(1);
 }
 
-void	check_length(char *number, t_bundle *bundle)
-{
-	if (ft_strlen(number) > 11)
-		error(bundle, 1);
-	if (ft_strlen(number) < 1)
-		error(bundle, 2);
-}
-
-unsigned int	check_bounds(char *number, t_bundle *bundle)
+unsigned int	atoi_unsigned(t_bundle *bundle, int i)
 {
 	int				sign;
 	long			res;
+	int				j;
 
 	sign = 1;
 	res = 0;
-	if (*number == '-' || *number == '+')
+	j = 0;
+	if (valid_chars(bundle->params_str_lst[i][j]) == 2)
 	{
-		if (*number == '-')
+		if (bundle->params_str_lst[i][j] == '-')
 			sign = -1;
-		number++;
+		j++;
 	}	
-	if (!ft_isdigit(*number))
+	if (!ft_isdigit(bundle->params_str_lst[i][j]))
 		error(bundle, 2);
-	while (*number >= '0' && *number <= '9')
+	while (ft_isdigit(bundle->params_str_lst[i][j]))
 	{
-		res = res * 10 + *number - '0';
-		number++;
+		res = res * 10 + bundle->params_str_lst[i][j] - '0';
+		j++;
 	}
-	if (*number)
+	if (bundle->params_str_lst[i][j])
 		error(bundle, 2);
 	if (sign * res < INT_MIN || INT_MAX < sign * res)
-		error(bundle, 3); 
-	return (INT_MIN_ABS + 1 + sign * res);
+		error(bundle, 3);
+	return (INT_MIN_ABS + sign * res);
 }
 
-void	check_duplicate(int i, t_bundle *bundle, unsigned int dummy)
+void	check_duplicate(int i, t_bundle *bundle)
 {
 	int	j;
 
 	j = 0;
-	while (j < i - 1)
+	while (j < i)
 	{
-		if (bundle->contents[j] == dummy)
+		if (bundle->uint_lst[j] == bundle->uint_lst[i])
 			error(bundle, 4);
 		j++;
 	}
 }
 
-void	check_argv(int argc, char **argv, t_bundle *bundle)
+void	down_to_zero(t_bundle *bundle)
 {
 	int				i;
-	unsigned int	dummy;
+	unsigned int	min;
 
-	i = 0;
-	bundle->bounds[0] = UINT_MAX;
-	bundle->bounds[1] = 0;
-	while (++i < argc)
+	i = -1;
+	min = UINT_MAX;
+	while (++i < bundle->params_nbr)
 	{
-		check_length(argv[i], bundle);
-		dummy = check_bounds(argv[i], bundle);
-		check_duplicate(i, bundle, dummy);
-		if (dummy < bundle->bounds[0])
-			bundle->bounds[0] = dummy;
-		bundle->contents[i - 1] = dummy;
+		check_duplicate(i, bundle);
+		if (bundle->uint_lst[i] < min)
+			min = bundle->uint_lst[i];
 	}
-	while (--i >= 1)
-	{
-		bundle->contents[i - 1] -= bundle->bounds[0];
-		if (bundle->contents[i - 1] > bundle->bounds[1])
-			bundle->bounds[1] = bundle->contents[i - 1];
-	}
-	bundle->bounds[0] = 0;
-	bundle->size = argc - 1;
+	while (--i >= 0)
+		bundle->uint_lst[i] -= min;
 }

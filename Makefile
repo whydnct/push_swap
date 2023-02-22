@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/02/19 16:31:56 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/02/21 19:23:21 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,6 +93,7 @@ $(NEW_LIB_A): $(OBJ)
 $(NAME): $(NEW_LIB_A) $(OBJ) | $(BIN_PATH)
 	@$(CC) $(CFLAGS) $(SRC_PATH)/main.c -L$(LIB_PATH) -l$(NAME) -o $(BIN_PATH)/$(NAME)
 	@$(CC) $(CFLAGS) $(SRC_PATH)/main.c -L$(LIB_PATH) -l$(NAME) -o $(NAME)
+	@cp $(NAME) push_swap-testeur-max/
 
 
 .PHONY: clean fclean re $(NEW_LIB_A)
