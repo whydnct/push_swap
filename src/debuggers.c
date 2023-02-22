@@ -53,8 +53,8 @@ void	ft_print_bundle_contents(t_bundle *bundle)
 	unsigned int i;
 
 	i = -1;
-	while (++i < bundle->size)
-		printf("[%u]", bundle->contents[i]);
+	while (++i < bundle->params_nbr)
+		printf("[%u]", bundle->uint_lst[i]);
 	printf("\n");
 		
 }

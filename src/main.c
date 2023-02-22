@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/22 22:09:10 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/22 22:18:29 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void ft_del(void *content)
 	*(unsigned int *)content = 0;
 }
 
-void normalize2(t_bundle *bundle)
+void up_to_params_nbr(t_bundle *bundle)
 {
 	unsigned int i;
 	unsigned int j;
@@ -142,7 +142,7 @@ int main(int argc, char **argv)
 		get_uint_lst(&bundle);
 		down_to_zero(&bundle);
 		check_ordered(&bundle);
-		normalize2(&bundle);
+		up_to_params_nbr(&bundle);
 		fill_stack_a(&bundle);
 		// ft_print_bundle(bundle);
 		radix_all_positions(&bundle);
