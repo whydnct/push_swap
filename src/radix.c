@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:37:33 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/20 19:45:57 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/23 21:59:06 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	get_max_iters(t_bundle bundle)
 	int counter;
 	
 	counter = 0;
-	while (bundle.size > 0)
+	while (bundle.params_nbr > 0)
 	{
-		bundle.size>>=1;
+		bundle.params_nbr>>=1;
 		counter++;
 	}
 	//printf("max iters:%d\n", counter);

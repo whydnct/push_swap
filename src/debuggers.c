@@ -60,7 +60,32 @@ void	ft_print_bundle_contents(t_bundle *bundle)
 }
 
 
-void	ft_print_list(void *stack_a_el)
+void	ft_print_list(t_list *stack)
 {
-	printf("content: %u @ %p\n", *(unsigned int *)stack_a_el, stack_a_el);
+	while (stack->next)
+	{
+		printf("content: %u @ %p\n", *(unsigned int *)stack->content, stack->content);
+		stack = stack->next;
+	}
+	printf("content: %u @ %p\n", *(unsigned int *)stack->content, stack->content);
+}
+
+void	printf_params_str_lst(t_bundle *bundle)
+{
+	unsigned int	i;
+
+	i = -1;
+	printf("-----str_lst-----\n");
+	while (++i < bundle->params_nbr)
+		printf("param n%u:%s\n", i, bundle->params_str_lst[i]);
+}
+
+void	printf_uint_lst(t_bundle *bundle)
+{
+	unsigned int	i;
+
+	i = -1;
+	printf("-----uint_lst-----\n");
+	while (++i < bundle->params_nbr)
+		printf("param n%u:%u\n", i, bundle->uint_lst[i]);
 }

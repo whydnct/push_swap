@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/22 22:16:17 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/23 20:21:18 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 void	error(t_bundle *bundle, int type_error)
 {
-	unsigned int	i;
-
-	i = 0;
 	if (type_error == 1)
 		ft_putstr_fd("Error"/*, parametre too long."*/"\n", 2);
 	else if (type_error == 2)
@@ -26,11 +23,11 @@ void	error(t_bundle *bundle, int type_error)
 		ft_putstr_fd("Error"/*, parametre out of bounds."*/"\n", 2);
 	else if (type_error == 4)
 		ft_putstr_fd("Error"/*, repeated parametre too long."*/"\n", 2);
-	free(bundle->contents);
+	free(bundle->uint_lst);
 	exit(1);
 }
 
-unsigned int	atoi_unsigned(t_bundle *bundle, int i)
+unsigned int	atoi_unsigned(t_bundle *bundle, unsigned int i)
 {
 	int				sign;
 	long			res;
@@ -74,7 +71,7 @@ void	check_duplicate(int i, t_bundle *bundle)
 
 void	down_to_zero(t_bundle *bundle)
 {
-	int				i;
+	unsigned int	i;
 	unsigned int	min;
 
 	i = -1;
@@ -85,6 +82,7 @@ void	down_to_zero(t_bundle *bundle)
 		if (bundle->uint_lst[i] < min)
 			min = bundle->uint_lst[i];
 	}
-	while (--i >= 0)
-		bundle->uint_lst[i] -= min;
+	i++;
+	while (--i >= 1)
+		bundle->uint_lst[i - 1] -= min;
 }

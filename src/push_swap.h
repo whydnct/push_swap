@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/22 22:16:10 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/23 21:54:26 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_stack
 } t_stack;
 typedef struct s_bundle
 {
-	int						params_nbr;
+	unsigned int			params_nbr;
 	char					*params_str;
 	char					**params_str_lst;
 	unsigned int			*uint_lst;
@@ -38,7 +38,7 @@ typedef struct s_bundle
 	t_list					*stack_b;
 	int						moves;
 }	t_bundle;
-unsigned int			check_bounds(char *number, t_bundle *bundle);
+unsigned int			atoi_unsigned(t_bundle *bundle, unsigned int i);
 void					check_length(char *number, t_bundle *bundle);
 void					check_argv(int argc, char **argv, t_bundle *bundle);
 void					check_duplicate(int i, t_bundle *bundle);
@@ -48,9 +48,19 @@ void					radix_all_positions(t_bundle *bundle);
 void					push_b(t_bundle *bundle);
 void					push_a(t_bundle *bundle);
 void					rotate_a(t_bundle *bundle);
-void					ft_print_list(void *stack_a_el);
+void					down_to_zero(t_bundle *bundle);
+unsigned int			get_chars_nbr(int argc, char **argv);
+void					get_params_str(int argc, char **argv, t_bundle *bundle);
+void					get_params_nbr(t_bundle *bundle, char c);
+int						valid_chars(char c);
+void					up_to_params_nbr(t_bundle *bundle);
+
+//debuggers
+void					printf_params_str_lst(t_bundle *bundle);
 void					ft_print_bundle(t_bundle bundle);
 void					ft_print_bundle_contents(t_bundle *bundle);
+void					printf_uint_lst(t_bundle *bundle);
+void					ft_print_list(t_list *stack);
 /*
 void			push_a(t_list **stack_b, t_list **stack_a);
 void			push_b(t_list **stack_a, t_list **stack_b);
