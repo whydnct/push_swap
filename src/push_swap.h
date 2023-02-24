@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/23 21:54:26 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/24 22:38:25 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void					check_duplicate(int i, t_bundle *bundle);
 int						get_max_iters(t_bundle bundle);
 void					radix_one_position(t_bundle *bundle, int i);
 void					radix_all_positions(t_bundle *bundle);
+
+//moves
 void					push_b(t_bundle *bundle);
 void					push_a(t_bundle *bundle);
 void					rotate_a(t_bundle *bundle);
@@ -54,6 +56,7 @@ void					get_params_str(int argc, char **argv, t_bundle *bundle);
 void					get_params_nbr(t_bundle *bundle, char c);
 int						valid_chars(char c);
 void					up_to_params_nbr(t_bundle *bundle);
+void					simpler_sort(t_bundle *bundle);
 
 //debuggers
 void					printf_params_str_lst(t_bundle *bundle);

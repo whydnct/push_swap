@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/24 21:18:00 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:37:56 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,10 @@ int main(int argc, char **argv)
 		fill_stack_a(&bundle);
 		ft_print_list(bundle.stack_a);
 		// ft_print_bundle(bundle);
-		radix_all_positions(&bundle);
+		if (bundle.params_nbr > 5)
+			radix_all_positions(&bundle);
+		else
+			simpler_sort(&bundle);
 		ft_print_bundle(bundle);
 		//  printf("%d moves\n", bundle.moves);
 		//  ft_lstiter(bundle.stack_a, &ft_print_list);

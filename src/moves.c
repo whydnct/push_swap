@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 18:46:41 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/22 22:16:29 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/24 22:38:20 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ sb: swap b - intercambia los dos primeros elementos encima del stack b. No hace 
 ss: swap a y swap b a la vez.
 rb : rotate b - desplaza hacia arriba todos los elementos del stack b una posición, de forma que el primer elemento se convierte en el último.
 rr : rotate a y rotate b - desplaza al mismo tiempo todos los elementos del stack a y del stack b una posición hacia arriba, de forma que el primer elemento se convierte en el último.
-rra : reverse rotate a - desplaza hacia abajo todos los elementos del stack a una posición, de forma que el último elemento se convierte en el primero.
 rrb : reverse rotate b - desplaza hacia abajo todos los elementos del stack b una posición, de forma que el último elemento se convierte en el primero.
 rrr : reverse rotate a y reverse rotate b - desplaza al mismo tiempo todos los elementos del stack a y del stack b una posición hacia abajo, de forma que el último elemento se convierte en el primero.
 */
@@ -73,4 +72,26 @@ void	rotate_a(t_bundle *bundle)
 	//printf("mov nbr %d\n", bundle->moves);
 	ft_putstr_fd("ra\n", 1);
 	//ft_print_bundle(*bundle);
+}
+
+//rra : reverse rotate a - desplaza hacia abajo todos los elementos del stack a una posición, de forma que el último elemento se convierte en el primero.
+void	r_rotate_a(t_bundle *bundle)
+{
+	t_list	*dummy_last;
+	t_list	*dummy_head;
+
+	dummy_last = ft_lstlast(bundle->stack_a);
+	dummy_head = bundle->stack_a;
+	ft_lstlast(bundle->stack_a)->next = bundle->stack_a;
+	bundle->stack_a = dummy_last;
+	while (dummy_head->next != dummy_last);
+	ft_putstr_fd("rra\n", 1);
+}
+
+void	swap_a(t_bundle *bundle)
+{
+	t_list	*dummy_head;
+
+	dummy_head = bundle->stack_a;
+	bundle->stack_a->next =
 }
