@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/23 20:21:18 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/24 20:27:15 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ unsigned int	atoi_unsigned(t_bundle *bundle, unsigned int i)
 	sign = 1;
 	res = 0;
 	j = 0;
-	if (valid_chars(bundle->params_str_lst[i][j]) == 2)
+	if (valid_chars(bundle->params_str_lst[i][j]) == 3)
 	{
 		if (bundle->params_str_lst[i][j] == '-')
 			sign = -1;
@@ -53,6 +53,7 @@ unsigned int	atoi_unsigned(t_bundle *bundle, unsigned int i)
 		error(bundle, 2);
 	if (sign * res < INT_MIN || INT_MAX < sign * res)
 		error(bundle, 3);
+	printf("%u added to uint_lst\n", (unsigned int)(INT_MIN_ABS + sign*res));
 	return (INT_MIN_ABS + sign * res);
 }
 

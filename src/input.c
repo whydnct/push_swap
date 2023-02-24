@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:18:30 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/23 21:57:54 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:20:38 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ unsigned int	get_chars_nbr(int argc, char **argv)
 			ret++;
 			j++;
 		}
-		ret++;
+		if (i < argc - 1)
+			ret++;
 		i++;
 	}
 	ret++;

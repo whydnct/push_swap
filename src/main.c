@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/23 21:57:46 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:18:00 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int main(int argc, char **argv)
 	unsigned int	chars_nbr;
 
 	chars_nbr = get_chars_nbr(argc, argv);
-	if(chars_nbr)
+	if(chars_nbr != 1)
 	{
 		bundle.params_str = malloc(sizeof(char)*chars_nbr);
 		if (!bundle.params_str)
@@ -147,13 +147,20 @@ int main(int argc, char **argv)
 		ft_print_list(bundle.stack_a);
 		// ft_print_bundle(bundle);
 		radix_all_positions(&bundle);
-		// ft_print_bundle(bundle);
+		ft_print_bundle(bundle);
 		//  printf("%d moves\n", bundle.moves);
 		//  ft_lstiter(bundle.stack_a, &ft_print_list);
 		ft_lstclear(&bundle.stack_a, &ft_del);
 		ft_lstclear(&bundle.stack_b, &ft_del);
 		// printf("memory cleared.\n");
 		free(bundle.uint_lst);
+		while (bundle.params_nbr)
+		{
+			free(bundle.params_str_lst[bundle.params_nbr]);
+			bundle.params_nbr--;
+		}
+		free(bundle.params_str_lst[0]);
+		free(bundle.params_str_lst);
 		free(bundle.params_str);
 	}
 }

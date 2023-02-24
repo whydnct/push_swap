@@ -78,6 +78,7 @@ void	printf_params_str_lst(t_bundle *bundle)
 	printf("-----str_lst-----\n");
 	while (++i < bundle->params_nbr)
 		printf("param n%u:%s\n", i, bundle->params_str_lst[i]);
+	printf("----finished printf_params_lst----\n");
 }
 
 void	printf_uint_lst(t_bundle *bundle)
