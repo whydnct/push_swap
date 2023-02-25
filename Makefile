@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/02/23 19:50:36 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/02/25 11:08:08 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = \
 	radix.c \
 	moves.c \
 	input.c \
+	simpler_sort.c \
 	debuggers.c
 #	moves_push.c\
 #	moves_reverse_rotate.c\

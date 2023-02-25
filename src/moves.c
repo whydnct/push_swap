@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 18:46:41 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/24 22:38:20 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:03:02 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,30 @@ void	r_rotate_a(t_bundle *bundle)
 	ft_lstlast(bundle->stack_a)->next = bundle->stack_a;
 	bundle->stack_a = dummy_last;
 	while (dummy_head->next != dummy_last);
+	bundle->moves++;
 	ft_putstr_fd("rra\n", 1);
 }
 
 void	swap_a(t_bundle *bundle)
 {
-	t_list	*dummy_head;
+	t_list	*dummy_second;
 
-	dummy_head = bundle->stack_a;
-	bundle->stack_a->next =
+	dummy_second = bundle->stack_a->next;
+	bundle->stack_a->next = dummy_second->next;
+	dummy_second->next = bundle->stack_a;
+	bundle->stack_a = dummy_second;
+	bundle->moves++;
+	ft_putstr_fd("sa\n", 1);
+}
+
+void	swap_b(t_bundle *bundle)
+{
+	t_list	*dummy_second;
+
+	dummy_second = bundle->stack_b->next;
+	bundle->stack_b->next = dummy_second->next;
+	dummy_second->next = bundle->stack_b;
+	bundle->stack_b = dummy_second;
+	bundle->moves++;
+	ft_putstr_fd("sb\n", 1);
 }

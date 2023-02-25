@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/24 22:38:25 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:07:25 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,17 @@ void					radix_all_positions(t_bundle *bundle);
 void					push_b(t_bundle *bundle);
 void					push_a(t_bundle *bundle);
 void					rotate_a(t_bundle *bundle);
+void					r_rotate_a(t_bundle *bundle);
+void					swap_a(t_bundle *bundle);
+void					swap_b(t_bundle *bundle);
+
 void					down_to_zero(t_bundle *bundle);
 unsigned int			get_chars_nbr(int argc, char **argv);
 void					get_params_str(int argc, char **argv, t_bundle *bundle);
 void					get_params_nbr(t_bundle *bundle, char c);
 int						valid_chars(char c);
 void					up_to_params_nbr(t_bundle *bundle);
-void					simpler_sort(t_bundle *bundle);
+void					sort_5(t_bundle *bundle);
 
 //debuggers
 void					printf_params_str_lst(t_bundle *bundle);
