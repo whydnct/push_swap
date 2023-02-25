@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.c                                            :+:      :+:    :+:   */
+/*   read_params.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 19:18:30 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/24 21:20:38 by aperez-m         ###   ########.fr       */
+/*   Created: 2023/02/25 12:18:07 by aperez-m          #+#    #+#             */
+/*   Updated: 2023/02/25 13:26:30 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ unsigned int	get_chars_nbr(int argc, char **argv)
 		i++;
 	}
 	ret++;
-	printf("chars_nbr: %u\n", ret - 1);
+	//printf("chars_nbr: %u\n", ret - 1);
 	return (ret);
 }
 
@@ -52,11 +52,7 @@ void get_params_str(int argc, char **argv, t_bundle *bundle)
 		while (argv[i][j])
 		{
 			if (!valid_chars(argv[i][j]))
-			{
-				ft_putstr_fd("Error\n", 2);
-				free(bundle->params_str);
-				exit(1);
-			}
+				error(bundle, 1);
 			bundle->params_str[k] = argv[i][j];
 			k++;
 			j++;
@@ -66,7 +62,7 @@ void get_params_str(int argc, char **argv, t_bundle *bundle)
 		i++;
 	}
 	bundle->params_str[k] = '\0';
-	printf("params_str:%s\n", bundle->params_str);
+	//printf("params_str:%s\n", bundle->params_str);
 }
 
 void get_params_nbr(t_bundle *bundle, char c)
@@ -84,34 +80,44 @@ void get_params_nbr(t_bundle *bundle, char c)
 		while (bundle->params_str[i] != c && bundle->params_str[i])
 			i++;
 	}
-	printf("params_nbr:%u\n", bundle->params_nbr);
+	//printf("params_nbr:%u\n", bundle->params_nbr);
 }
 
-void up_to_params_nbr(t_bundle *bundle)
+void	get_uint_lst(t_bundle *bundle)
 {
-	unsigned int i;
-	unsigned int j;
-	unsigned int min;
-	unsigned int min_j;
+	unsigned int	i;
 
-	i = 0;
-	min_j = 0;
-	// ft_print_bundle_contents(bundle);
-	while (i < bundle->params_nbr)
+	i = -1;
+	while (++i < bundle->params_nbr)
+		bundle->uint_lst[i] = atoi_unsigned(bundle, i);
+}
+
+unsigned int	atoi_unsigned(t_bundle *bundle, unsigned int i)
+{
+	int				sign;
+	long			res;
+	int				j;
+
+	sign = 1;
+	res = 0;
+	j = 0;
+	if (valid_chars(bundle->params_str_lst[i][j]) == 3)
 	{
-		j = 0;
-		min = UINT_MAX;
-		while (j < bundle->params_nbr)
-		{
-			if (min > bundle->uint_lst[j] && bundle->uint_lst[j] >= i)
-			{
-				min = bundle->uint_lst[j];
-				min_j = j;
-			}
-			j++;
-		}
-		bundle->uint_lst[min_j] = i;
-		i++;
+		if (bundle->params_str_lst[i][j] == '-')
+			sign = -1;
+		j++;
+	}	
+	if (!ft_isdigit(bundle->params_str_lst[i][j]))
+		error(bundle, 2);
+	while (ft_isdigit(bundle->params_str_lst[i][j]))
+	{
+		res = res * 10 + bundle->params_str_lst[i][j] - '0';
+		j++;
 	}
-	// ft_print_bundle_contents(bundle);
+	if (bundle->params_str_lst[i][j])
+		error(bundle, 2);
+	if (sign * res < INT_MIN || INT_MAX < sign * res)
+		error(bundle, 4);
+	//printf("%u added to uint_lst\n", (unsigned int)(INT_MIN_ABS + sign*res));
+	return (INT_MIN_ABS + sign * res);
 }

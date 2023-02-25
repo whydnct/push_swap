@@ -1,171 +1,161 @@
-==6950== Memcheck, a memory error detector
-==6950== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==6950== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==6950== Command: ./push_swap \ -5\ 2\ -3\  \ 4\ 7
-==6950== Parent PID: 2093
-==6950== 
-==6950== Invalid write of size 1
-==6950==    at 0x10A5EB: get_params_str (input.c:68)
-==6950==    by 0x10959E: main (main.c:132)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x484AD84: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x48CFFF4: __vfprintf_internal (vfprintf-process-arg.c:397)
-==6950==    by 0x48C37AE: printf (printf.c:33)
-==6950==    by 0x10A60C: get_params_str (input.c:69)
-==6950==    by 0x10959E: main (main.c:132)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x10A64F: get_params_nbr (input.c:80)
-==6950==    by 0x1095AF: main (main.c:133)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x10A667: get_params_nbr (input.c:82)
-==6950==    by 0x1095AF: main (main.c:133)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x10A67F: get_params_nbr (input.c:82)
-==6950==    by 0x1095AF: main (main.c:133)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x10A6AB: get_params_nbr (input.c:84)
-==6950==    by 0x1095AF: main (main.c:133)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x10A6C3: get_params_nbr (input.c:84)
-==6950==    by 0x1095AF: main (main.c:133)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x10A6DA: get_params_nbr (input.c:78)
-==6950==    by 0x1095AF: main (main.c:133)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x109828: get_w_nbr (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109A28: ft_split (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1095C0: main (main.c:134)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x10983D: get_w_nbr (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109A28: ft_split (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1095C0: main (main.c:134)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x109852: get_w_nbr (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109A28: ft_split (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1095C0: main (main.c:134)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x109870: get_w_nbr (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109A28: ft_split (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1095C0: main (main.c:134)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x109885: get_w_nbr (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109A28: ft_split (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1095C0: main (main.c:134)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x109899: get_w_nbr (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109A28: ft_split (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1095C0: main (main.c:134)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x10AD5A: ft_strlen (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x10AD31: ft_strlcpy (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1099DB: build_list (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109A68: ft_split (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1095C0: main (main.c:134)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x109929: build_list (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109A68: ft_split (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1095C0: main (main.c:134)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x109935: build_list (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109A68: ft_split (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1095C0: main (main.c:134)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Invalid read of size 1
-==6950==    at 0x1099ED: build_list (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109A68: ft_split (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x1095C0: main (main.c:134)
-==6950==  Address 0x4a7648f is 0 bytes after a block of size 15 alloc'd
-==6950==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==6950==    by 0x109572: main (main.c:129)
-==6950== 
-==6950== Conditional jump or move depends on uninitialised value(s)
-==6950==    at 0x109AFD: ft_lstadd_back (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109271: fill_stack_a (main.c:24)
-==6950==    by 0x109658: main (main.c:146)
-==6950== 
-==6950== Conditional jump or move depends on uninitialised value(s)
-==6950==    at 0x10ADF4: ft_lstsize (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x10A9A0: ft_print_bundle (debuggers.c:13)
-==6950==    by 0x1096CD: main (main.c:153)
-==6950== 
-==6950== Conditional jump or move depends on uninitialised value(s)
-==6950==    at 0x109B7D: ft_lstclear (in /home/al/42/push_swap/push_swap)
-==6950==    by 0x109705: main (main.c:157)
-==6950== 
-==6950== 
-==6950== HEAP SUMMARY:
-==6950==     in use at exit: 0 bytes in 0 blocks
-==6950==   total heap usage: 14 allocs, 14 frees, 1,199 bytes allocated
-==6950== 
-==6950== All heap blocks were freed -- no leaks are possible
-==6950== 
-==6950== Use --track-origins=yes to see where uninitialised values come from
-==6950== For lists of detected and suppressed errors, rerun with: -s
-==6950== ERROR SUMMARY: 25 errors from 21 contexts (suppressed: 0 from 0)
+==19250== Memcheck, a memory error detector
+==19250== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==19250== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==19250== Command: ./push_swap -1055210545 -1916037606 -623932844 -453367857 953517957 1443782414 91290923
+==19250== Parent PID: 2172
+==19250== 
+==19250== Invalid write of size 1
+==19250==    at 0x10983B: get_params_str (read_params.c:64)
+==19250==    by 0x10925F: main (main.c:27)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x10987C: get_params_nbr (read_params.c:76)
+==19250==    by 0x109270: main (main.c:28)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x109894: get_params_nbr (read_params.c:78)
+==19250==    by 0x109270: main (main.c:28)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x1098AC: get_params_nbr (read_params.c:78)
+==19250==    by 0x109270: main (main.c:28)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x1098D8: get_params_nbr (read_params.c:80)
+==19250==    by 0x109270: main (main.c:28)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x1098F0: get_params_nbr (read_params.c:80)
+==19250==    by 0x109270: main (main.c:28)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x109907: get_params_nbr (read_params.c:74)
+==19250==    by 0x109270: main (main.c:28)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x1093E5: get_w_nbr (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x1095E5: ft_split (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109281: main (main.c:29)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x1093FA: get_w_nbr (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x1095E5: ft_split (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109281: main (main.c:29)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x10940F: get_w_nbr (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x1095E5: ft_split (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109281: main (main.c:29)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x10942D: get_w_nbr (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x1095E5: ft_split (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109281: main (main.c:29)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x109442: get_w_nbr (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x1095E5: ft_split (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109281: main (main.c:29)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x109456: get_w_nbr (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x1095E5: ft_split (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109281: main (main.c:29)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x10A691: ft_strlen (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x10A668: ft_strlcpy (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109598: build_list (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109625: ft_split (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109281: main (main.c:29)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x1094E6: build_list (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109625: ft_split (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109281: main (main.c:29)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x1094F2: build_list (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109625: ft_split (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109281: main (main.c:29)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Invalid read of size 1
+==19250==    at 0x1095AA: build_list (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109625: ft_split (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109281: main (main.c:29)
+==19250==  Address 0x4a7608c is 0 bytes after a block of size 76 alloc'd
+==19250==    at 0x4844899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19250==    by 0x109233: main (main.c:24)
+==19250== 
+==19250== Conditional jump or move depends on uninitialised value(s)
+==19250==    at 0x10A7CD: ft_lstadd_back (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x109CF2: fill_stack_a (normalize_params.c:70)
+==19250==    by 0x1092E9: main (main.c:41)
+==19250== 
+==19250== Conditional jump or move depends on uninitialised value(s)
+==19250==    at 0x109F96: radix_one_position (radix.c:56)
+==19250==    by 0x10A013: radix_all_positions (radix.c:71)
+==19250==    by 0x1092FD: main (main.c:45)
+==19250== 
+==19250== Conditional jump or move depends on uninitialised value(s)
+==19250==    at 0x1096AA: ft_lstclear (in /home/al/42/push_swap/push_swap)
+==19250==    by 0x10933F: main (main.c:53)
+==19250== 
+==19250== 
+==19250== HEAP SUMMARY:
+==19250==     in use at exit: 0 bytes in 0 blocks
+==19250==   total heap usage: 17 allocs, 17 frees, 356 bytes allocated
+==19250== 
+==19250== All heap blocks were freed -- no leaks are possible
+==19250== 
+==19250== Use --track-origins=yes to see where uninitialised values come from
+==19250== For lists of detected and suppressed errors, rerun with: -s
+==19250== ERROR SUMMARY: 28 errors from 20 contexts (suppressed: 0 from 0)

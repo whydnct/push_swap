@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/25 11:07:25 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:24:57 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,47 +38,52 @@ typedef struct s_bundle
 	t_list					*stack_b;
 	int						moves;
 }	t_bundle;
+//read_params
+unsigned int			get_chars_nbr(int argc, char **argv);
+void					get_params_str(int argc, char **argv, t_bundle *bundle);
+void					get_params_nbr(t_bundle *bundle, char c);
 unsigned int			atoi_unsigned(t_bundle *bundle, unsigned int i);
-void					check_length(char *number, t_bundle *bundle);
-void					check_argv(int argc, char **argv, t_bundle *bundle);
+void					get_uint_lst(t_bundle *bundle);
+
+//normalize_params
+void					up_to_params_nbr(t_bundle *bundle);
+void					down_to_zero(t_bundle *bundle);
+void 					fill_stack_a(t_bundle *bundle);
+
+//errors
+
+int						valid_chars(char c);
 void					check_duplicate(int i, t_bundle *bundle);
+void					error(t_bundle *bundle, int type_error);
+void 					check_ordered(t_bundle *bundle);
+
+//moves_push_swap
+void					push_b(t_bundle *bundle);
+void					push_a(t_bundle *bundle);
+void					swap_a(t_bundle *bundle);
+void					swap_b(t_bundle *bundle);
+
+//moves_rotate
+void					rotate_a(t_bundle *bundle);
+void					r_rotate_a(t_bundle *bundle);
+
+//simpler_sort
+void					sort_5(t_bundle *bundle);
+void					sort_3(t_bundle *bundle);
+void					reduce_to_3(t_bundle *bundle);
+
+//radix
 int						get_max_iters(t_bundle bundle);
 void					radix_one_position(t_bundle *bundle, int i);
 void					radix_all_positions(t_bundle *bundle);
 
-//moves
-void					push_b(t_bundle *bundle);
-void					push_a(t_bundle *bundle);
-void					rotate_a(t_bundle *bundle);
-void					r_rotate_a(t_bundle *bundle);
-void					swap_a(t_bundle *bundle);
-void					swap_b(t_bundle *bundle);
-
-void					down_to_zero(t_bundle *bundle);
-unsigned int			get_chars_nbr(int argc, char **argv);
-void					get_params_str(int argc, char **argv, t_bundle *bundle);
-void					get_params_nbr(t_bundle *bundle, char c);
-int						valid_chars(char c);
-void					up_to_params_nbr(t_bundle *bundle);
-void					sort_5(t_bundle *bundle);
-
+//free
+void 					ft_del(void *content);
+void 					free_all(t_bundle	*bundle);
 //debuggers
 void					printf_params_str_lst(t_bundle *bundle);
 void					ft_print_bundle(t_bundle bundle);
 void					ft_print_bundle_contents(t_bundle *bundle);
 void					printf_uint_lst(t_bundle *bundle);
 void					ft_print_list(t_list *stack);
-/*
-void			push_a(t_list **stack_b, t_list **stack_a);
-void			push_b(t_list **stack_a, t_list **stack_b);
-void			error(unsigned int *contents, int type_error);
-void	r_rotate_a(int **stack, int *size, int in_both_call);
-void	r_rotate_b(int **stack, int *size, int in_both_call);
-void	r_rotate_both(int **stack_a, int **stack_b, int *size_a, int *size_b);
-void	rotate_a(int **stack, int *size, int in_both_call);
-void	rotate_b(int **stack, int *size, int in_both_call);
-void	rotate_both(int **stack_a, int **stack_b, int *size_a, int *size_b);
-void	add_on_top(int **stack_to, int **stack_from, int *size_to);
-void	remove_from_top(int **stack, int *size);
-*/
 #endif

@@ -16,13 +16,13 @@ void	ft_print_bundle(t_bundle bundle)
 	{
 		while (i < size_a - size_b)
 		{
-			printf("%u @ %p \n", *(unsigned int *)bundle.stack_a->content, bundle.stack_a);
+			printf("%u @ %p \n", *(unsigned int *)bundle.stack_a->content, bundle.stack_a->content);
 			bundle.stack_a = bundle.stack_a->next;
 			i++;
 		}
 		while (i < size_a)
 		{
-			printf("%u @ %p \t\t\t %u @ %p \n", *(unsigned int *)bundle.stack_a->content, bundle.stack_a, *(unsigned int *)bundle.stack_b->content, bundle.stack_b);
+			printf("%u @ %p \t\t\t %u @ %p \n", *(unsigned int *)bundle.stack_a->content, bundle.stack_a->content, *(unsigned int *)bundle.stack_b->content, bundle.stack_b->content);
 			bundle.stack_b = bundle.stack_b->next;
 			bundle.stack_a = bundle.stack_a->next;
 			i++;
@@ -32,13 +32,13 @@ void	ft_print_bundle(t_bundle bundle)
 	{
 		while (i < size_b - size_a)
 		{
-			printf("               \t\t\t %u @ %p \n", *(unsigned int *)bundle.stack_b->content, bundle.stack_b);
+			printf("               \t\t\t %u @ %p \n", *(unsigned int *)bundle.stack_b->content, bundle.stack_b->content);
 			bundle.stack_b = bundle.stack_b->next;
 			i++;
 		}
 		while (i < size_b)
 		{
-			printf("%u @ %p \t\t\t %u @ %p \n", *(unsigned int *)bundle.stack_a->content, bundle.stack_a, *(unsigned int *)bundle.stack_b->content, bundle.stack_b);
+			printf("%u @ %p \t\t\t %u @ %p \n", *(unsigned int *)bundle.stack_a->content, bundle.stack_a->content, *(unsigned int *)bundle.stack_b->content, bundle.stack_b->content);
 			bundle.stack_b = bundle.stack_b->next;
 			bundle.stack_a = bundle.stack_a->next;
 			i++;

@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 21:39:09 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/25 11:47:46 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/25 20:44:44 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,10 @@ void	reduce_to_3(t_bundle *bundle)
 
 void	sort_5(t_bundle *bundle)
 {
-	reduce_to_3(bundle);
+	if (bundle->params_nbr > 3)
+		reduce_to_3(bundle);
 	sort_3(bundle);
+	//ft_print_bundle(*bundle);
 	if (bundle->params_nbr == 5)
 	{
 		if(*(unsigned int *)bundle->stack_b->content 
@@ -58,5 +60,9 @@ void	sort_5(t_bundle *bundle)
 			swap_b(bundle);
 		push_a(bundle);
 	}
-	push_a(bundle);
+	if (bundle->params_nbr > 3)
+		push_a(bundle);
+	if(*(unsigned int *)bundle->stack_a->content 
+		> *(unsigned int *)bundle->stack_a->next->content)
+		swap_a(bundle);
 }

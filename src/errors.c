@@ -6,55 +6,52 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/24 20:27:15 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:30:52 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	error(t_bundle *bundle, int type_error)
+/*
+Errores
+- No hay parámetros
+	- nada
+- Sólo hay un parámetro
+	- nada
+- Los parámetros no son números, + o - (1)
+	- free(bundle.params_str)
+- Hay +-, -, +, ++, -- (2)
+- Los parámetros están repetidos (3)
+- Los parámetros están fuera de rango (4)
+	- free(bundle.params_str)
+	- free(bundle.params_str_lst)
+	- while(i < bundle.params_nbr - 1)
+		free(bundle.params_str_lst[i])
+	- free(bundle.uint_lst)
+*/
+
+int	valid_chars(char c)
 {
-	if (type_error == 1)
-		ft_putstr_fd("Error"/*, parametre too long."*/"\n", 2);
-	else if (type_error == 2)
-		ft_putstr_fd("Error"/*, parametre is not a number."*/"\n", 2);
-	else if (type_error == 3)
-		ft_putstr_fd("Error"/*, parametre out of bounds."*/"\n", 2);
-	else if (type_error == 4)
-		ft_putstr_fd("Error"/*, repeated parametre too long."*/"\n", 2);
-	free(bundle->uint_lst);
-	exit(1);
+	if(ft_isdigit(c))
+		return (1);
+	if (c == ' ')
+		return (2);
+	if (c == '-' || c == '+')
+		return (3);
+	return (0);
 }
 
-unsigned int	atoi_unsigned(t_bundle *bundle, unsigned int i)
+void	error(t_bundle *bundle, int type_error)
 {
-	int				sign;
-	long			res;
-	int				j;
 
-	sign = 1;
-	res = 0;
-	j = 0;
-	if (valid_chars(bundle->params_str_lst[i][j]) == 3)
-	{
-		if (bundle->params_str_lst[i][j] == '-')
-			sign = -1;
-		j++;
-	}	
-	if (!ft_isdigit(bundle->params_str_lst[i][j]))
-		error(bundle, 2);
-	while (ft_isdigit(bundle->params_str_lst[i][j]))
-	{
-		res = res * 10 + bundle->params_str_lst[i][j] - '0';
-		j++;
-	}
-	if (bundle->params_str_lst[i][j])
-		error(bundle, 2);
-	if (sign * res < INT_MIN || INT_MAX < sign * res)
-		error(bundle, 3);
-	printf("%u added to uint_lst\n", (unsigned int)(INT_MIN_ABS + sign*res));
-	return (INT_MIN_ABS + sign * res);
+	if (type_error > 1)
+		free_all(bundle);
+	if (type_error == 1)
+		free(bundle->params_str);
+	ft_putstr_fd("Error\n", 2);
+	//printf("%d\n", type_error);
+	exit(1);
 }
 
 void	check_duplicate(int i, t_bundle *bundle)
@@ -65,25 +62,28 @@ void	check_duplicate(int i, t_bundle *bundle)
 	while (j < i)
 	{
 		if (bundle->uint_lst[j] == bundle->uint_lst[i])
-			error(bundle, 4);
+			error(bundle, 3);
 		j++;
 	}
 }
 
-void	down_to_zero(t_bundle *bundle)
-{
-	unsigned int	i;
-	unsigned int	min;
 
-	i = -1;
-	min = UINT_MAX;
-	while (++i < bundle->params_nbr)
+void check_ordered(t_bundle *bundle)
+{
+	unsigned int i;
+
+	i = 0;
+	while (i < bundle->params_nbr - 1)
 	{
-		check_duplicate(i, bundle);
-		if (bundle->uint_lst[i] < min)
-			min = bundle->uint_lst[i];
+		if (bundle->uint_lst[i] > bundle->uint_lst[i + 1])
+			return;
+		i++;
 	}
-	i++;
-	while (--i >= 1)
-		bundle->uint_lst[i - 1] -= min;
+	if (i == bundle->params_nbr - 1)
+	{
+		// ft_putstr_fd("Nothing to do, it's already ordered.\n", 1);
+		free_all(bundle);
+		exit(0);
+	}
+printf("---they're not ordered---\n");
 }

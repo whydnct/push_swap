@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/02/25 11:08:08 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/02/25 13:19:43 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,16 +23,15 @@ ARFLAGS = rcs
 
 SRC_PATH = src
 SRC = \
+	read_params.c \
+	normalize_params.c \
 	errors.c \
 	radix.c \
-	moves.c \
-	input.c \
 	simpler_sort.c \
+	moves_push_swap.c \
+	moves_rotate.c \
+	free.c \
 	debuggers.c
-#	moves_push.c\
-#	moves_reverse_rotate.c\
-#	moves_rotate.c\
-#	moves_swap.c
 
 INCLUDE = $(SRC_PATH)/push_swap.h
 
