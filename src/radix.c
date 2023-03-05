@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:37:33 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/05 11:30:00 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:24:53 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_max_iters(t_bundle bundle)
 	int counter;
 	
 	counter = 0;
-	while (bundle.params_nbr - 1 > 0)
+	while (bundle.params_nbr > 0)
 	{
 		bundle.params_nbr>>=1;
 		//printf("bundle.params_nbr:%u\n", bundle.params_nbr);
@@ -59,7 +59,7 @@ void	radix_one_position(t_bundle *bundle, int i)
 		//ft_print_list(bundle->stack_b);
 		push_a(bundle);
 	}
-	printf("finished sending them back to a\n");
+	//printf("finished sending them back to a\n");
 }
 
 void	radix_all_positions(t_bundle *bundle)
@@ -69,7 +69,7 @@ void	radix_all_positions(t_bundle *bundle)
 
 	i = 0;
 	max_iters = get_max_iters(*bundle);
-	printf("max iters: %d\n", max_iters);
+	//printf("max iters: %d\n", max_iters);
 	while (i < max_iters)
 	{
 		radix_one_position(bundle, i);

@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/05 11:45:19 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:25:53 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int main(int argc, char **argv)
 		check_ordered(&bundle);
 		up_to_params_nbr(&bundle);
 		//printf_uint_lst(&bundle);
+		bundle.stack_a = NULL;
+		bundle.stack_b = NULL;
 		fill_stack_a(&bundle);
 		//ft_print_list(bundle.stack_a);
 		// ft_print_bundle(bundle);
@@ -48,7 +50,7 @@ int main(int argc, char **argv)
 		//ft_print_bundle(bundle);
 		//ft_print_bundle_contents(&bundle);
 		//printf("%d moves\n", bundle.moves);
-		//  ft_lstiter(bundle.stack_a, &ft_print_list);
+		//ft_lstiter(bundle.stack_a, &ft_print_list);
 		//ft_print_bundle(bundle);
 		ft_lstclear(&bundle.stack_a, &ft_del);
 		ft_lstclear(&bundle.stack_b, &ft_del);
