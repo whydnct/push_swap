@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:37:33 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/05 21:15:14 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/05 21:26:01 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,18 @@ int	get_max_iters(t_bundle bundle)
 
 void	radix_one_position(t_bundle *bundle, int i)
 {
-	int		first_rotation;
 	t_list	*first_rotated;
 
-	first_rotation = 0;
 	first_rotated = NULL;
 	while (bundle->stack_a != first_rotated && bundle->stack_a->next)
 	{	
 		if (((*(int *)bundle->stack_a->content >> i) & 1) == 0)
 			push_b(bundle);
-		else
+		else if (bundle->stack_a->next)
 		{
-			if (bundle->stack_a->next)
-			{
-				if (first_rotation == 0)
-				{
-					first_rotated = bundle->stack_a;
-					first_rotation = 1;
-				}
-				rotate_a(bundle);
-			}
+			if (first_rotated == NULL)
+				first_rotated = bundle->stack_a;
+			rotate_a(bundle);
 		}
 	}
 	while (bundle->stack_b)
