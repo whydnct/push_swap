@@ -6,12 +6,11 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 18:46:41 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/05 10:19:45 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:54:17 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 /*
 pb : push b - toma el primer elemento del stack a y lo pone encima 
 del stack b. No hace nada si a está vacío.
@@ -43,8 +42,6 @@ void	push_a(t_bundle *bundle)
 		dummy = bundle->stack_b->next;
 		ft_lstadd_front(&bundle->stack_a, bundle->stack_b);
 		bundle->stack_b = dummy;
-		//ft_print_list(bundle->stack_b);
-		//ft_print_bundle(*bundle);
 		bundle->moves++;
 		ft_putstr_fd("pa\n", 1);
 	}

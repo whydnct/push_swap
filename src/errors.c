@@ -6,12 +6,11 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/25 13:30:52 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:54:30 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 /*
 Errores
@@ -33,7 +32,7 @@ Errores
 
 int	valid_chars(char c)
 {
-	if(ft_isdigit(c))
+	if (ft_isdigit(c))
 		return (1);
 	if (c == ' ')
 		return (2);
@@ -44,13 +43,11 @@ int	valid_chars(char c)
 
 void	error(t_bundle *bundle, int type_error)
 {
-
 	if (type_error > 1)
 		free_all(bundle);
 	if (type_error == 1)
 		free(bundle->params_str);
 	ft_putstr_fd("Error\n", 2);
-	//printf("%d\n", type_error);
 	exit(1);
 }
 
@@ -67,23 +64,20 @@ void	check_duplicate(int i, t_bundle *bundle)
 	}
 }
 
-
-void check_ordered(t_bundle *bundle)
+void	check_ordered(t_bundle *bundle)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < bundle->params_nbr - 1)
 	{
 		if (bundle->uint_lst[i] > bundle->uint_lst[i + 1])
-			return;
+			return ;
 		i++;
 	}
 	if (i == bundle->params_nbr - 1)
 	{
-		// ft_putstr_fd("Nothing to do, it's already ordered.\n", 1);
 		free_all(bundle);
 		exit(0);
 	}
-printf("---they're not ordered---\n");
 }

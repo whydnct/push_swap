@@ -6,18 +6,17 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 18:46:41 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/25 18:32:52 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:55:12 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	rotate_a(t_bundle *bundle)
 {
 	t_list	*dummy;
 
-	if(bundle->stack_a)
+	if (bundle->stack_a)
 	{
 		dummy = bundle->stack_a->next;
 		ft_lstlast(bundle->stack_a)->next = bundle->stack_a;
@@ -37,7 +36,7 @@ void	r_rotate_a(t_bundle *bundle)
 	t_list	*dummy_last;
 	t_list	*dummy_head;
 
-	if(bundle->stack_a->next)
+	if (bundle->stack_a->next)
 	{
 		dummy_last = ft_lstlast(bundle->stack_a);
 		ft_lstlast(bundle->stack_a)->next = bundle->stack_a;

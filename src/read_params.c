@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 12:18:07 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/05 10:16:52 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/05 21:00:48 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ unsigned int	get_chars_nbr(int argc, char **argv)
 	unsigned int	ret;
 	int				digits;
 
-	i[0] = 1;
+	i[0] = 0;
 	ret = 1;
-	while (i[0] < argc)
+	while (++i[0] < argc)
 	{
 		i[1] = 0;
 		digits = 0;
@@ -38,16 +38,15 @@ unsigned int	get_chars_nbr(int argc, char **argv)
 		}	
 		if (i[0] < argc - 1)
 			ret++;
-		i[0]++;
 	}
 	return (ret);
 }
 
-void get_params_str(int argc, char **argv, t_bundle *bundle)
+void	get_params_str(int argc, char **argv, t_bundle *bundle)
 {
-	int i;
-	int k;
-	int j;
+	int	i;
+	int	k;
+	int	j;
 
 	i = 1;
 	k = 0;
@@ -67,12 +66,11 @@ void get_params_str(int argc, char **argv, t_bundle *bundle)
 		i++;
 	}
 	bundle->params_str[k] = '\0';
-	//printf("params_str:%s\n", bundle->params_str);
 }
 
-void get_params_nbr(t_bundle *bundle, char c)
+void	get_params_nbr(t_bundle *bundle, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	bundle->params_nbr = 0;
@@ -85,7 +83,6 @@ void get_params_nbr(t_bundle *bundle, char c)
 		while (bundle->params_str[i] != c && bundle->params_str[i])
 			i++;
 	}
-	//printf("params_nbr:%u\n", bundle->params_nbr);
 }
 
 void	get_uint_lst(t_bundle *bundle)
@@ -123,6 +120,5 @@ unsigned int	atoi_unsigned(t_bundle *bundle, unsigned int i)
 		error(bundle, 2);
 	if (sign * res < INT_MIN || INT_MAX < sign * res)
 		error(bundle, 4);
-	//printf("%u added to uint_lst\n", (unsigned int)(INT_MIN_ABS + sign*res));
 	return (INT_MIN_ABS + sign * res);
 }
