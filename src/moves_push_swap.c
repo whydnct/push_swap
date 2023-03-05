@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 18:46:41 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/25 21:59:16 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/05 10:19:45 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	push_a(t_bundle *bundle)
 		ft_lstadd_front(&bundle->stack_a, bundle->stack_b);
 		bundle->stack_b = dummy;
 		//ft_print_list(bundle->stack_b);
-		ft_print_bundle(*bundle);
+		//ft_print_bundle(*bundle);
 		bundle->moves++;
 		ft_putstr_fd("pa\n", 1);
 	}

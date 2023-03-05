@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:37:33 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/25 21:51:35 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/05 10:20:37 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	radix_one_position(t_bundle *bundle, int i)
 		//ft_print_list(bundle->stack_b);
 		push_a(bundle);
 	}
-	printf("finished sending them back to a\n");
+	//printf("finished sending them back to a\n");
 }
 
 void	radix_all_positions(t_bundle *bundle)
@@ -73,7 +73,7 @@ void	radix_all_positions(t_bundle *bundle)
 	while (i < max_iters)
 	{
 		radix_one_position(bundle, i);
-		printf("%dº position rotated\n", i);
+		//printf("%dº position rotated\n", i);
 		i++;
 	}
 	//printf("exit radix all positions\n");

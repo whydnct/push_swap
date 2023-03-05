@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 12:18:07 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/02/25 13:26:30 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/05 10:16:52 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,31 @@
 
 unsigned int	get_chars_nbr(int argc, char **argv)
 {
-	int				i;
-	int				j;
+	int				i[2];
 	unsigned int	ret;
+	int				digits;
 
-	i = 1;
-	ret = 0;
-	while (i < argc)
+	i[0] = 1;
+	ret = 1;
+	while (i[0] < argc)
 	{
-		j = 0;
-		while (argv[i][j])
+		i[1] = 0;
+		digits = 0;
+		while (argv[i[0]][i[1]])
 		{
 			ret++;
-			j++;
+			digits += ft_isdigit(argv[i[0]][i[1]]);
+			i[1]++;
 		}
-		if (i < argc - 1)
+		if (digits == 0)
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit (1);
+		}	
+		if (i[0] < argc - 1)
 			ret++;
-		i++;
+		i[0]++;
 	}
-	ret++;
-	//printf("chars_nbr: %u\n", ret - 1);
 	return (ret);
 }
 
