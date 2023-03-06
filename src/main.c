@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/05 20:54:24 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:38:28 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	main(int argc, char **argv)
 	t_bundle		bundle;
 	unsigned int	chars_nbr;
 
+	if (argc < 2)
+		return (0);
 	chars_nbr = get_chars_nbr(argc, argv);
 	if (chars_nbr != 1)
 	{

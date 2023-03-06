@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 18:46:41 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/05 20:55:12 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/06 11:01:04 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ void	rotate_a(t_bundle *bundle)
 		bundle->stack_a = dummy;
 		bundle->moves++;
 		ft_putstr_fd("ra\n", 1);
+	}
+}
+
+void	rotate_b(t_bundle *bundle)
+{
+	t_list	*dummy;
+
+	if (bundle->stack_b)
+	{
+		dummy = bundle->stack_b->next;
+		ft_lstlast(bundle->stack_b)->next = bundle->stack_b;
+		bundle->stack_b->next = NULL;
+		bundle->stack_b = dummy;
+		bundle->moves++;
+		ft_putstr_fd("rb\n", 1);
 	}
 }
 

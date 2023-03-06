@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/02/25 13:19:43 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/03/06 12:28:00 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = push_swap
 BIN_PATH = bin
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g1 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g1 -fsanitize=address
 
 AR = ar
 ARFLAGS = rcs
@@ -94,7 +94,6 @@ $(NEW_LIB_A): $(OBJ)
 $(NAME): $(NEW_LIB_A) $(OBJ) | $(BIN_PATH)
 	@$(CC) $(CFLAGS) $(SRC_PATH)/main.c -L$(LIB_PATH) -l$(NAME) -o $(BIN_PATH)/$(NAME)
 	@$(CC) $(CFLAGS) $(SRC_PATH)/main.c -L$(LIB_PATH) -l$(NAME) -o $(NAME)
-	@cp $(NAME) push_swap-testeur-max/
 
 
 .PHONY: clean fclean re $(NEW_LIB_A)

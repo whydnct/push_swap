@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:37:33 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/05 21:26:01 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/06 11:31:09 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	get_max_iters(t_bundle bundle)
 
 void	radix_one_position(t_bundle *bundle, int i)
 {
-	t_list	*first_rotated;
+	t_list			*first_rotated;
+	unsigned int	size_b;
 
 	first_rotated = NULL;
 	while (bundle->stack_a != first_rotated && bundle->stack_a->next)
@@ -42,18 +43,24 @@ void	radix_one_position(t_bundle *bundle, int i)
 			rotate_a(bundle);
 		}
 	}
-	while (bundle->stack_b)
-		push_a(bundle);
+	size_b = ft_lstsize(bundle->stack_b);
+	while (size_b)
+	{
+		if (i < bundle->max_iters - 1 && ((*(int *)bundle->stack_b->content >> (i + 1)) & 1) == 0)
+			rotate_b(bundle);
+		else
+			push_a(bundle);
+		size_b--;
+	}
 }
 
 void	radix_all_positions(t_bundle *bundle)
 {
 	int	i;
-	int	max_iters;
 
 	i = 0;
-	max_iters = get_max_iters(*bundle);
-	while (i < max_iters)
+	bundle->max_iters = get_max_iters(*bundle);
+	while (i < bundle->max_iters)
 	{
 		radix_one_position(bundle, i);
 		i++;

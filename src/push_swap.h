@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/05 20:56:54 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/06 11:01:27 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_bundle
 	t_list					*stack_a;
 	t_list					*stack_b;
 	int						moves;
+	int						max_iters;
 }	t_bundle;
 //read_params
 unsigned int			get_chars_nbr(int argc, char **argv);
@@ -65,6 +66,7 @@ void					swap_b(t_bundle *bundle);
 
 //moves_rotate
 void					rotate_a(t_bundle *bundle);
+void					rotate_b(t_bundle *bundle);
 void					r_rotate_a(t_bundle *bundle);
 
 //simpler_sort
