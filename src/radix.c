@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:37:33 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/06 11:31:09 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:46:36 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	radix_one_position(t_bundle *bundle, int i)
 	size_b = ft_lstsize(bundle->stack_b);
 	while (size_b)
 	{
-		if (i < bundle->max_iters - 1 && ((*(int *)bundle->stack_b->content >> (i + 1)) & 1) == 0)
+		if (i < bundle->max_iters - 1
+			&& ((*(int *)bundle->stack_b->content >> (i + 1)) & 1) == 0)
 			rotate_b(bundle);
 		else
 			push_a(bundle);
