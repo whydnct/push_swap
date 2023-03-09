@@ -6,14 +6,13 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/03/06 12:28:00 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/03/09 17:40:10 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # VARIABLES
 
 NAME = push_swap
-BIN_PATH = bin
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g1 -fsanitize=address
@@ -30,8 +29,7 @@ SRC = \
 	simpler_sort.c \
 	moves_push_swap.c \
 	moves_rotate.c \
-	free.c \
-	debuggers.c
+	free.c 
 
 INCLUDE = $(SRC_PATH)/push_swap.h
 
@@ -76,14 +74,11 @@ fclean:	clean
 $(OBJ_PATH):
 	@mkdir -p $@
 
-$(BIN_PATH):
-	@mkdir -p $@
-
 $(LIB_PATH):
 	@mkdir -p $@
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH) $(LIB_PATH)
-	$(CC) $(CFLAGS) -c $^ -o $@
+	@$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NEW_LIB_A): $(OBJ)
 	@make -C ./libft
@@ -91,8 +86,7 @@ $(NEW_LIB_A): $(OBJ)
 	@cp $(LIB_A) $@
 	@$(AR) $(ARFLAGS) $@ $^
 
-$(NAME): $(NEW_LIB_A) $(OBJ) | $(BIN_PATH)
-	@$(CC) $(CFLAGS) $(SRC_PATH)/main.c -L$(LIB_PATH) -l$(NAME) -o $(BIN_PATH)/$(NAME)
+$(NAME): $(NEW_LIB_A) $(OBJ)
 	@$(CC) $(CFLAGS) $(SRC_PATH)/main.c -L$(LIB_PATH) -l$(NAME) -o $(NAME)
 
 

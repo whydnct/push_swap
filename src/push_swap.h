@@ -6,7 +6,7 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 13:18:06 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/06 11:01:27 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:34:37 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,6 @@
 # include <stdlib.h>
 # include "../libft/src/libft.h"
 
-typedef struct s_stack
-{
-	void			*content;
-	struct s_stack	*next;
-	struct s_bundle	*bundle;
-
-}	t_stack;
 typedef struct s_bundle
 {
 	unsigned int			params_nbr;
@@ -82,10 +75,4 @@ void					radix_all_positions(t_bundle *bundle);
 //free
 void					ft_del(void *content);
 void					free_all(t_bundle	*bundle);
-//debuggers
-void					printf_params_str_lst(t_bundle *bundle);
-void					ft_print_bundle(t_bundle bundle);
-void					ft_print_bundle_contents(t_bundle *bundle);
-void					printf_uint_lst(t_bundle *bundle);
-void					ft_print_list(t_list *stack);
 #endif
