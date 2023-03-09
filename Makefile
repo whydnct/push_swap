@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/03/09 17:40:10 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/03/09 17:56:35 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,12 +82,11 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH) $(LIB_PATH)
 
 $(NEW_LIB_A): $(OBJ)
 	@make -C ./libft
-	@cp libft/libft.a $(LIB_A)
-	@cp $(LIB_A) $@
+	@mv libft/libft.a $@
 	@$(AR) $(ARFLAGS) $@ $^
 
 $(NAME): $(NEW_LIB_A) $(OBJ)
 	@$(CC) $(CFLAGS) $(SRC_PATH)/main.c -L$(LIB_PATH) -l$(NAME) -o $(NAME)
 
 
-.PHONY: clean fclean re $(NEW_LIB_A)
+.PHONY: clean fclean re
