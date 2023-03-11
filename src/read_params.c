@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 unsigned int	get_chars_nbr(int argc, char **argv)
 {
