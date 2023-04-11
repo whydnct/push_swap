@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/03/09 17:58:39 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/04/11 18:50:13 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g1 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g3
 
 AR = ar
 ARFLAGS = rcs
@@ -31,7 +31,7 @@ SRC = \
 	moves_rotate.c \
 	free.c 
 
-INCLUDE = $(SRC_PATH)/push_swap.h
+#INCLUDE = $(SRC_PATH)/push_swap.h
 
 OBJ_PATH = obj
 OBJ = $(addprefix $(OBJ_PATH)/, $(SRC:.c=.o))
@@ -41,7 +41,7 @@ OBJ = $(addprefix $(OBJ_PATH)/, $(SRC:.c=.o))
 LIB_PATH = lib
 LIB_H = $(LIB_PATH)/libft.h
 LIB_A = $(LIB_PATH)/libft.a
-NEW_LIB_A = $(LIB_PATH)/libpush_swap.a
+NEW_LIB_A = $(LIB_PATH)/lib$(NAME).a
 
 # RULES
 
@@ -54,11 +54,6 @@ NEW_LIB_A = $(LIB_PATH)/libpush_swap.a
 
 # $@ = target
 # $^ = prerequisite
-# TODO: está bien meter la .PHONY $(NEW_LIB_A) para que
-# recompile siempre la librería? como no tiene .o para comparar
-# con src creo que va a recompilarla siempre, y no sé si eso es correcto
-# esto viene de intentar incorporar cambios en libft.
-
 
 all: $(NAME)
 
@@ -68,8 +63,7 @@ clean:
 	@rm -rf $(OBJ_PATH)
 
 fclean:	clean
-	@rm -rf $(BIN_PATH)
-	@rm -rf *.dSYM
+	@rm -rf $(NAME)
 
 $(OBJ_PATH):
 	@mkdir -p $@
@@ -89,3 +83,5 @@ $(NAME): $(NEW_LIB_A) $(OBJ)
 	@$(CC) $(CFLAGS) $(SRC_PATH)/main.c -L$(LIB_PATH) -l$(NAME) -o $(NAME)
 
 .PHONY: clean fclean re
+
+#valgrind --leak-check=yes --log-file=valgrind.rpt ./a.out
