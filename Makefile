@@ -6,7 +6,7 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/04/11 18:50:13 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/04/11 19:05:43 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ NEW_LIB_A = $(LIB_PATH)/lib$(NAME).a
 # RULES
 
 # target: prerequisites
-#	command
+#	commandgg
 #	command
 
 # if there's a file with the same name of the target
