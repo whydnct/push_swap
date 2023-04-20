@@ -51,9 +51,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-
-# Reports, Results and testers
-*.rpt
-results
-push_swap_tester
-push_swap-testeur-max
