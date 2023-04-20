@@ -6,29 +6,11 @@
 /*   By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:37:37 by aperez-m          #+#    #+#             */
-/*   Updated: 2023/03/05 20:54:30 by aperez-m         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:56:04 by aperez-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-Errores
-- No hay parámetros
-	- nada
-- Sólo hay un parámetro
-	- nada
-- Los parámetros no son números, + o - (1)
-	- free(bundle.params_str)
-- Hay +-, -, +, ++, -- (2)
-- Los parámetros están repetidos (3)
-- Los parámetros están fuera de rango (4)
-	- free(bundle.params_str)
-	- free(bundle.params_str_lst)
-	- while(i < bundle.params_nbr - 1)
-		free(bundle.params_str_lst[i])
-	- free(bundle.uint_lst)
-*/
 
 int	valid_chars(char c)
 {

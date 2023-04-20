@@ -6,11 +6,11 @@
 #    By: aperez-m <aperez-m@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/02 13:31:05 by aperez-m          #+#    #+#              #
-#    Updated: 2023/04/20 18:50:37 by aperez-m         ###   ########.fr        #
+#    Updated: 2023/04/20 18:56:45 by aperez-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME_CLIENT := push_swap
+NAME := push_swap
 
 #------------------------------------------------#
 #   INGREDIENTS                                  #
@@ -122,4 +122,4 @@ info-%:
 #------------------------------------------------#
 
 .PHONY: clean fclean re
-#.SILENT:
+.SILENT:
